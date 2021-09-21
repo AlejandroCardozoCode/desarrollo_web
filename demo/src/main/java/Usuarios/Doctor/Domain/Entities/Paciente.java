@@ -6,11 +6,11 @@ public class Paciente {
     private String nombre;
     private String animal;
     private String raza;
-    private int edad;
+    private Integer edad;
     private String valoracion;
-    private int ccDuenio;
+    private Integer ccDuenio;
 
-    public Paciente(String nombre, String animal, String raza, int edad, String valoracion, int ccDuenio) {
+    public Paciente(String nombre, String animal, String raza, Integer edad, String valoracion, Integer ccDuenio) {
         this.nombre = nombre;
         this.animal = animal;
         this.raza = raza;

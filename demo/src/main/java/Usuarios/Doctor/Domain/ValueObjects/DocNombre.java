@@ -26,14 +26,10 @@ public class DocNombre extends StringValueObject {
         }
     }
 
-
-
     private void validar(String nombre) {
         if(nombre.isEmpty() || nombre.equals(""))
         {
             throw new NombreNoValido("no se ha ingresado un valor en el nombre");
         }
     }
-
-
 }
