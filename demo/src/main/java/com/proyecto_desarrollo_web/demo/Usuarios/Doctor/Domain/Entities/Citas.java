@@ -4,16 +4,16 @@ package com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Entities;
 import java.util.Objects;
 
 public class Citas {
-    private Integer cedulaDoctor;
-    private Integer cedulaDuenio;
+    private String idDoctor;
+    private String idPaciente;
     private Integer hotaCita;
     private Integer diaCita;
     private Integer mesCita;
     private String nombrePacienteMascota;
 
-    public Citas(Integer cedulaDoctor, Integer cedulaDuenio, Integer hotaCita, Integer diaCita, Integer mesCita, String nombrePacienteMascota) {
-        this.cedulaDoctor = cedulaDoctor;
-        this.cedulaDuenio = cedulaDuenio;
+    public Citas(String idDoctor, String idPaciente, Integer hotaCita, Integer diaCita, Integer mesCita, String nombrePacienteMascota) {
+        this.idDoctor = idDoctor;
+        this.idPaciente = idPaciente;
         this.hotaCita = hotaCita;
         this.diaCita = diaCita;
         this.mesCita = mesCita;
@@ -25,11 +25,11 @@ public class Citas {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Citas citas = (Citas) o;
-        return cedulaDoctor.equals(citas.cedulaDoctor) && cedulaDuenio.equals(citas.cedulaDuenio) && hotaCita.equals(citas.hotaCita) && diaCita.equals(citas.diaCita) && mesCita.equals(citas.mesCita) && nombrePacienteMascota.equals(citas.nombrePacienteMascota);
+        return idDoctor.equals(citas.idDoctor) && idPaciente.equals(citas.idPaciente) && hotaCita.equals(citas.hotaCita) && diaCita.equals(citas.diaCita) && mesCita.equals(citas.mesCita) && nombrePacienteMascota.equals(citas.nombrePacienteMascota);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(cedulaDoctor, cedulaDuenio, hotaCita, diaCita, mesCita, nombrePacienteMascota);
+        return Objects.hash(idDoctor, idPaciente, hotaCita, diaCita, mesCita, nombrePacienteMascota);
     }
 }

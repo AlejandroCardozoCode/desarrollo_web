@@ -1,8 +1,9 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain;
 
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Entities.Citas;
-import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Entities.Paciente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.*;
+import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente;
+import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.ValueObjects.PacienteId;
 
 import java.util.List;
 import java.util.Objects;
@@ -25,8 +26,8 @@ public class Doctor {
         this.horarioInicial = horarioInicial;
         this.horarioFinal = horarioFinal;
         this.estudios = estudios;
-        //this.arregloPacientes = arregloPacientes;
-        //this.arregloCitas = arregloCitas;
+        this.arregloPacientes = Optional.empty();
+        this.arregloCitas = Optional.empty();
     }
 
     public static Doctor Create(DocId id,DocNombre nombre,DocCedula cedula, DocHorarioInicial horarioInicial, DocHorarioFinal horarioFinal, DocEstudios estudios ){
@@ -34,6 +35,20 @@ public class Doctor {
         return doctoNuevo;
     }
 
+    public void agregarPacienteListaPacientes(Paciente paciente){
+        this.arregloPacientes.get().add(paciente);
+    }
+    public void agregarCita(Citas cita)
+    {
+        this.arregloCitas.get().add(cita);
+    }
+
+    public  void actualizarHoraInicial(DocHorarioInicial horaI){
+        this.horarioInicial = horaI;
+    }
+    public  void actualizarHoraFinal(DocHorarioFinal horaF){
+        this.horarioFinal = horaF;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

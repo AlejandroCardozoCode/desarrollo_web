@@ -1,16 +1,15 @@
 package com.proyecto_desarrollo_web.demo.DoctorTest;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
-import static org.junit.jupiter.api.Assertions.*;
 
-import com.proyecto_desarrollo_web.demo.Shared.Domain.Exceptions.UUIDNotValid;
-import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Application.Create.CreateDoctor;
-import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Application.Encontrar.EncontarDoctor;
+import com.proyecto_desarrollo_web.demo.Usuarios.Admin.Application.ActualizarHoraIncial.ActualizadorHoraInicialDoctor;
+import com.proyecto_desarrollo_web.demo.Usuarios.Admin.Application.CrearDoctor.CrearDoctor;
+import com.proyecto_desarrollo_web.demo.Usuarios.Admin.Application.Encontrar.EncontarDoc;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Doctor;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Ports.DoctorRepositorio;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.*;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -23,7 +22,7 @@ public class DocTest {
     void deveriaCrearCamion(){
         DoctorRepositorio repositorio= mock(DoctorRepositorio.class);
 
-        CreateDoctor creador = new CreateDoctor(repositorio);
+        CrearDoctor creador = new CrearDoctor(repositorio);
 
         Doctor doc = new Doctor(new DocId("2188ec13-a26d-4b9f-a4b2-bfe88108d6fd"), new DocNombre("Diego"), new DocCedula(123456), new DocHorarioInicial(7), new DocHorarioFinal(14),new DocEstudios("Master"));
 
@@ -36,7 +35,7 @@ public class DocTest {
     void encontrarCamion(){
         DoctorRepositorio repositorio= mock(DoctorRepositorio.class);
 
-        EncontarDoctor buscador = new EncontarDoctor(repositorio);
+        EncontarDoc buscador = new EncontarDoc(repositorio);
 
         Doctor doc = new Doctor(new DocId("2188ec13-a26d-4b9f-a4b2-bfe88108d6fd"), new DocNombre("Diego"), new DocCedula(123456), new DocHorarioInicial(7), new DocHorarioFinal(14),new DocEstudios("Master"));
 
@@ -44,6 +43,18 @@ public class DocTest {
 
         assertEquals(doc, buscador.econtrar("2188ec13-a26d-4b9f-a4b2-bfe88108d6fd"));
     }
+    @Test
+    void cambiarHoraIncial(){
+        DoctorRepositorio repositorio= mock(DoctorRepositorio.class);
 
+        ActualizadorHoraInicialDoctor ac = new ActualizadorHoraInicialDoctor(repositorio);
+
+        Doctor doc = new Doctor(new DocId("2188ec13-a26d-4b9f-a4b2-bfe88108d6fd"), new DocNombre("Diego"), new DocCedula(123456), new DocHorarioInicial(7), new DocHorarioFinal(14),new DocEstudios("Master"));
+
+        Mockito.when(repositorio.encotrar(new DocId("2188ec13-a26d-4b9f-a4b2-bfe88108d6fd"))).thenReturn(Optional.of(doc));
+        ac.execute(2,"2188ec13-a26d-4b9f-a4b2-bfe88108d6fd");
+
+        verify(repositorio,atLeastOnce()).guardar(doc);
+    }
 
 }
