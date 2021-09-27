@@ -6,6 +6,7 @@ import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Ports.DoctorRepos
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.DocId;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -16,8 +17,8 @@ import java.util.Optional;
 public class HibernateDoctorRepository extends HibernateRepository<Doctor> implements DoctorRepositorio {
 
 
-    protected HibernateDoctorRepository(SessionFactory sessionFactory, Class<Doctor> aggregateClass) {
-        super(sessionFactory, aggregateClass);
+    protected HibernateDoctorRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {
+        super(sessionFactory, Doctor.class);
     }
 
     @Override

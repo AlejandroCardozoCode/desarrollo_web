@@ -1,4 +1,4 @@
-package com.proyecto_desarrollo_web.demo.Usuarios.Admin.Application.CrearDoctor;
+package com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.CrearDoctor;
 
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Doctor;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Ports.DoctorRepositorio;
