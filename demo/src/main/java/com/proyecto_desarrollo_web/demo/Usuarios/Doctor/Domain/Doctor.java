@@ -1,9 +1,8 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain;
 
-import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Entities.Citas;
+import com.proyecto_desarrollo_web.demo.Shared.Entities.Citas;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.*;
-import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente;
-import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.ValueObjects.PacienteId;
+import com.proyecto_desarrollo_web.demo.Shared.Domain.Paciente;
 
 import java.util.List;
 import java.util.Objects;

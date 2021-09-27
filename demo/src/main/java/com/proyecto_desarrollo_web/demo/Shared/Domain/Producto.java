@@ -1,4 +1,4 @@
-package com.proyecto_desarrollo_web.demo.Producto.Domain;
+package com.proyecto_desarrollo_web.demo.Shared.Domain;
 
 import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoCantidad;
 import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoId;

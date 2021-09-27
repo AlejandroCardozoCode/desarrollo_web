@@ -1,13 +1,12 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Application.PagarCarrito;
 
-import com.proyecto_desarrollo_web.demo.Producto.Domain.Producto;
+import com.proyecto_desarrollo_web.demo.Shared.Domain.Producto;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Exceptions.CarritoComprasVacio;
-import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente;
+import com.proyecto_desarrollo_web.demo.Shared.Domain.Paciente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Ports.PacienteRepositorio;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Services.ServicioBuscarPaciente;
 
 import java.util.List;
-import java.util.Optional;
 
 public class PagadorCarrito {
 

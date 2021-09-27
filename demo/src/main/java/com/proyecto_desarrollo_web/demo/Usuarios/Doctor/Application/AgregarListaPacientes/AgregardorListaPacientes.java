@@ -3,7 +3,7 @@ package com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.AgregarList
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Doctor;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Ports.DoctorRepositorio;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Services.ServicioBuscarDoctorDominio;
-import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente;
+import com.proyecto_desarrollo_web.demo.Shared.Domain.Paciente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Ports.PacienteRepositorio;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Services.ServicioBuscarPaciente;
 

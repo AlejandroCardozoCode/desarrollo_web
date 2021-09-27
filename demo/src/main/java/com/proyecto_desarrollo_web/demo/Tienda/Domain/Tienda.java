@@ -1,6 +1,6 @@
 package com.proyecto_desarrollo_web.demo.Tienda.Domain;
 
-import com.proyecto_desarrollo_web.demo.Producto.Domain.Producto;
+import com.proyecto_desarrollo_web.demo.Shared.Domain.Producto;
 
 import java.util.List;
 import java.util.Objects;

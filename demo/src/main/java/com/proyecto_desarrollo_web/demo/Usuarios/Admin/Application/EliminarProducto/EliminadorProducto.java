@@ -1,7 +1,7 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Admin.Application.EliminarProducto;
 
 import com.proyecto_desarrollo_web.demo.Producto.Domain.Ports.ProductoRepositorio;
-import com.proyecto_desarrollo_web.demo.Producto.Domain.Producto;
+import com.proyecto_desarrollo_web.demo.Shared.Domain.Producto;
 import com.proyecto_desarrollo_web.demo.Producto.Domain.Services.ServicioBuscarProducto;
 import com.proyecto_desarrollo_web.demo.Tienda.Domain.Tienda;
 

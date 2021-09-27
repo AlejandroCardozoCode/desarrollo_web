@@ -1,7 +1,6 @@
-package com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain;
+package com.proyecto_desarrollo_web.demo.Shared.Domain;
 
-import com.proyecto_desarrollo_web.demo.Producto.Domain.Producto;
-import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Entities.Citas;
+import com.proyecto_desarrollo_web.demo.Shared.Entities.Citas;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.ValueObjects.*;
 
 import java.util.List;
@@ -15,7 +14,7 @@ public class Paciente {
     private PacienteEdad edad;
     private PacienteValoracion valoracion;
     private PacienteCC ccDuenio;
-    private Optional<List<Citas>> arregloCitas;
+    private Optional<List<Citas>> historiaClinicaPaciente;
     private Optional<List<Producto>> productosComprados;
     private Optional<List<Producto>> productosSinComprar;
 
@@ -27,7 +26,7 @@ public class Paciente {
         this.edad = edad;
         this.valoracion = valoracion;
         this.ccDuenio = ccDuenio;
-        this.arregloCitas = Optional.empty();
+        this.historiaClinicaPaciente = Optional.empty();
         this.productosComprados = Optional.empty();
         this.productosSinComprar = Optional.empty();
     }
@@ -37,8 +36,8 @@ public class Paciente {
         return pacienteNuevo;
     }
 
-    public List<Citas> verCitasPaciente(){
-        return this.arregloCitas.get();
+    public List<Citas> verHistorialMedicoPaciente(){
+        return this.historiaClinicaPaciente.get();
     }
 
     public List<Producto> verProductosCarrito(){
@@ -60,7 +59,7 @@ public class Paciente {
 
     public void agregarCita(Citas cita)
     {
-        this.arregloCitas.get().add(cita);
+        this.historiaClinicaPaciente.get().add(cita);
     }
 
     public void agregarCarrito(Producto producto){

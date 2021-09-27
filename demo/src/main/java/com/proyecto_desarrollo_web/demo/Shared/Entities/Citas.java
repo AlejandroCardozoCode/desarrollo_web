@@ -1,4 +1,4 @@
-package com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Entities;
+package com.proyecto_desarrollo_web.demo.Shared.Entities;
 
 
 import java.util.Objects;
