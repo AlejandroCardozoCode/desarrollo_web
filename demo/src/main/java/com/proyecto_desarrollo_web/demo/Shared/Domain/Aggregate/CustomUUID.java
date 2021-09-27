@@ -2,10 +2,11 @@ package com.proyecto_desarrollo_web.demo.Shared.Domain.Aggregate;
 
 import com.proyecto_desarrollo_web.demo.Shared.Domain.Exceptions.UUIDNotValid;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
 
-public class CustomUUID {
+public class CustomUUID implements Serializable {
 
     private String value;
 
