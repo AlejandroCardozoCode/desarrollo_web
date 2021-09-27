@@ -7,6 +7,7 @@ import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.DocI
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -14,6 +15,7 @@ import javax.persistence.criteria.Root;
 import java.util.List;
 import java.util.Optional;
 
+@Transactional("transactional-manager")
 public class HibernateDoctorRepository extends HibernateRepository<Doctor> implements DoctorRepositorio {
 
 
