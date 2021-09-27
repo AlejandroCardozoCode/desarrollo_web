@@ -30,7 +30,7 @@ public class HibernateConfigFactory {
         sessionFactory.setDataSource(this.dataSource());
         sessionFactory.setHibernateProperties(this.hibernateProperties());
 
-        FileSystemResource resource1 = new FileSystemResource("./src/main/java/com/proyecto_desarrollo_web/demo/Usuarios/Doctor/Domain/Doctor.hbm.xml");
+        FileSystemResource resource1 = new FileSystemResource("./src/main/java/com/proyecto_desarrollo_web/demo/Usuarios/Doctor/Infrastructure/Hibernate/Doctor.hbm.xml");
 
         sessionFactory.setMappingLocations(resource1);
         return sessionFactory;

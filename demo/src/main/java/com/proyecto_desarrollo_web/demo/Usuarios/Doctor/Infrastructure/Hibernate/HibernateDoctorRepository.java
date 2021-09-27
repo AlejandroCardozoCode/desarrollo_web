@@ -17,7 +17,7 @@ import java.util.Optional;
 public class HibernateDoctorRepository extends HibernateRepository<Doctor> implements DoctorRepositorio {
 
 
-    protected HibernateDoctorRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {
+    public HibernateDoctorRepository(@Qualifier("session-factory") SessionFactory sessionFactory) {
         super(sessionFactory, Doctor.class);
     }
 
@@ -49,7 +49,6 @@ public class HibernateDoctorRepository extends HibernateRepository<Doctor> imple
         Root<Doctor> root = cr.from(Doctor.class);
         cr.select(root).where(cb.equal(root.get("DocId"), id));
         List<Doctor> doctors = sessionFactory.getCurrentSession().createQuery(cr).getResultList();
-
         return Optional.ofNullable(doctors);
     }
 
