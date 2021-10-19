@@ -1,8 +1,8 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain;
 
-import com.proyecto_desarrollo_web.demo.Shared.Entities.Citas;
+import com.proyecto_desarrollo_web.demo.Shared.Entities.HistoriaClinica;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.*;
-import com.proyecto_desarrollo_web.demo.Shared.Domain.Paciente;
+import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente;
 
 import java.util.List;
 import java.util.Objects;
@@ -14,32 +14,34 @@ public class Doctor {
     private DocCedula cedula;
     private DocHorarioInicial horarioInicial;
     private DocHorarioFinal horarioFinal;
-    private DocEstudios estudios;
+    private DocUsuario usuario;
+    private DocContrasenna contrasenna;
     private Optional<List<Paciente>> arregloPacientes;
-    private Optional<List<Citas>> arregloCitas;
+    private Optional<List<HistoriaClinica>> arregloHistoriasDoc;
 
-    public Doctor(DocId id,DocNombre nombre, DocCedula cedula, DocHorarioInicial horarioInicial, DocHorarioFinal horarioFinal, DocEstudios estudios) {
+    public Doctor(DocId id,DocNombre nombre, DocCedula cedula, DocHorarioInicial horarioInicial, DocHorarioFinal horarioFinal, DocUsuario usuario, DocContrasenna contra) {
         this.id = id;
         this.nombre = nombre;
         this.cedula = cedula;
         this.horarioInicial = horarioInicial;
         this.horarioFinal = horarioFinal;
-        this.estudios = estudios;
+        this.usuario = usuario;
+        this.contrasenna = contra;
         this.arregloPacientes = Optional.empty();
-        this.arregloCitas = Optional.empty();
+        this.arregloHistoriasDoc = Optional.empty();
     }
 
-    public static Doctor Create(DocId id,DocNombre nombre,DocCedula cedula, DocHorarioInicial horarioInicial, DocHorarioFinal horarioFinal, DocEstudios estudios ){
-        Doctor doctoNuevo = new Doctor(id,nombre,cedula, horarioInicial, horarioFinal,estudios);
+    public static Doctor Create(DocId id,DocNombre nombre,DocCedula cedula, DocHorarioInicial horarioInicial, DocHorarioFinal horarioFinal, DocUsuario usuario , DocContrasenna contra){
+        Doctor doctoNuevo = new Doctor(id,nombre,cedula, horarioInicial, horarioFinal,usuario, contra);
         return doctoNuevo;
     }
 
     public void agregarPacienteListaPacientes(Paciente paciente){
         this.arregloPacientes.get().add(paciente);
     }
-    public void agregarCita(Citas cita)
+    public void agregarCita(HistoriaClinica cita)
     {
-        this.arregloCitas.get().add(cita);
+        this.arregloHistoriasDoc.get().add(cita);
     }
 
     public  void actualizarHoraInicial(DocHorarioInicial horaI){
@@ -48,16 +50,19 @@ public class Doctor {
     public  void actualizarHoraFinal(DocHorarioFinal horaF){
         this.horarioFinal = horaF;
     }
+    public void actualizarContra(DocContrasenna nuevaContra){
+        this.contrasenna = nuevaContra;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Doctor doctor = (Doctor) o;
-        return Objects.equals(nombre, doctor.nombre) && Objects.equals(cedula, doctor.cedula) && Objects.equals(horarioInicial, doctor.horarioInicial) && Objects.equals(horarioFinal, doctor.horarioFinal) && Objects.equals(estudios, doctor.estudios) && Objects.equals(arregloPacientes, doctor.arregloPacientes) && Objects.equals(arregloCitas, doctor.arregloCitas);
+        return Objects.equals(nombre, doctor.nombre) && Objects.equals(cedula, doctor.cedula) && Objects.equals(horarioInicial, doctor.horarioInicial) && Objects.equals(horarioFinal, doctor.horarioFinal) && Objects.equals(usuario, doctor.usuario) && Objects.equals(arregloPacientes, doctor.arregloPacientes) && Objects.equals(arregloHistoriasDoc, doctor.arregloHistoriasDoc);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(nombre, cedula, horarioInicial, horarioFinal, estudios, arregloPacientes, arregloCitas);
+        return Objects.hash(nombre, cedula, horarioInicial, horarioFinal, usuario, arregloPacientes, arregloHistoriasDoc);
     }
 }

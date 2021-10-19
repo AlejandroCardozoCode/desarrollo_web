@@ -1,9 +1,9 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Admin.Domain;
 
-import com.proyecto_desarrollo_web.demo.Usuarios.Admin.Domain.ValueObjects.AdminId;
-import com.proyecto_desarrollo_web.demo.Usuarios.Admin.Domain.ValueObjects.AdminNombre;
+import com.proyecto_desarrollo_web.demo.Usuarios.Admin.Domain.ValueObjects.AdminContra;
+import com.proyecto_desarrollo_web.demo.Usuarios.Admin.Domain.ValueObjects.AdminUsuario;
 
 public class Admin {
-    AdminId id;
-    AdminNombre nombre;
+    AdminUsuario usuario;
+    AdminContra contra;
 }

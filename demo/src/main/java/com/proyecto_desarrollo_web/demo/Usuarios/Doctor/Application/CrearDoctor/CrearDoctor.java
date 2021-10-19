@@ -15,9 +15,9 @@ public class CrearDoctor {
         this.repositorio = repositorio;
     }
 
-    public void execute(String id,Integer cedula, String estudios, Integer horarioInicial, Integer horarioFinal, String nombre){
+    public void execute(String id,Integer cedula, String estudios, Integer horarioInicial, Integer horarioFinal, String nombre, String contra){
         this.validate(id);
-        Doctor doctor = Doctor.Create( new DocId(id), new DocNombre(nombre), new DocCedula(cedula), new DocHorarioInicial(horarioInicial), new DocHorarioFinal(horarioFinal), new DocEstudios(estudios));
+        Doctor doctor = Doctor.Create( new DocId(id), new DocNombre(nombre), new DocCedula(cedula), new DocHorarioInicial(horarioInicial), new DocHorarioFinal(horarioFinal), new DocUsuario(estudios), new DocContrasenna(contra));
         repositorio.guardar(doctor);
     }
     private void validate(String docId)

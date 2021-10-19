@@ -15,5 +15,4 @@ public interface DoctorRepositorio {
     void delete(Doctor doctor);
     Optional<List<Doctor>> encontrarID(DocId id);
     Optional<Doctor> encotrar(DocId id);
-
 }

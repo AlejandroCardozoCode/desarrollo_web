@@ -1,6 +1,7 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Cliente;
 
-import com.proyecto_desarrollo_web.demo.Shared.Domain.Paciente;
+import com.proyecto_desarrollo_web.demo.Producto.Domain.Producto;
+import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.ValueObjects.*;
 
 import java.util.List;
@@ -13,6 +14,8 @@ public class Cliente {
     private ClienteContra contrasena;
     private ClienteNumero numero;
     private Optional<List<Paciente>> arregloMascotas;
+    private Optional<List<Producto>> productosComprados;
+    private Optional<List<Producto>> productosSinComprar;
 
     public Cliente(ClienteId id, ClienteNombre nombre, ClienteUsuario usuario, ClienteContra contrasena, ClienteNumero numero) {
         this.id = id;
@@ -21,6 +24,8 @@ public class Cliente {
         this.contrasena = contrasena;
         this.numero = numero;
         this.arregloMascotas = Optional.empty();
+        this.productosComprados = Optional.empty();
+        this.productosSinComprar = Optional.empty();
     }
 
     public static Cliente Create(ClienteId id, ClienteNombre nombre, ClienteUsuario usuario, ClienteContra contrasena, ClienteNumero numero)
@@ -36,4 +41,24 @@ public class Cliente {
     public void agregarMascota(Paciente paciente){
         this.arregloMascotas.get().add(paciente);
     }
+
+    public List<Producto> verProductosCarrito(){
+        return this.productosSinComprar.get();
+    }
+
+    public Integer precioCarrito(){
+        Integer valor = 0;
+        for(int i= 0 ; i< productosSinComprar.get().size(); i++)
+        {
+            valor = valor + productosSinComprar.get().get(i).precio().value();
+        }
+        return valor;
+    }
+    public void agregarCarrito(Producto producto){
+        this.productosSinComprar.get().add(producto);
+    }
+    public void agregarCarritoFinal(Producto producto){
+        this.productosComprados.get().add(producto);
+    }
+
 }

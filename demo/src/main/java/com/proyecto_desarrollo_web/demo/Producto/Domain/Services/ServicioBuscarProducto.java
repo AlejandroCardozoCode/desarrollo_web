@@ -2,7 +2,7 @@ package com.proyecto_desarrollo_web.demo.Producto.Domain.Services;
 
 import com.proyecto_desarrollo_web.demo.Producto.Domain.Exceptions.IdProductoNoEncontrado;
 import com.proyecto_desarrollo_web.demo.Producto.Domain.Ports.ProductoRepositorio;
-import com.proyecto_desarrollo_web.demo.Shared.Domain.Producto;
+import com.proyecto_desarrollo_web.demo.Producto.Domain.Producto;
 import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoId;
 
 import java.util.Optional;
