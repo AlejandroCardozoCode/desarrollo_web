@@ -15,7 +15,7 @@ public class BuscarProducto {
         servicioBuscarProducto = new ServicioBuscarProducto(this.repo);
     }
 
-    public Producto execute(String id){
+    public Producto busqueda(String id){
         return servicioBuscarProducto.execute(id);
     }
 }

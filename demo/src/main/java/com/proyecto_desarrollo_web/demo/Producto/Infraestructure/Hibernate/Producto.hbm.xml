@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.proyecto_desarrollo_web.demo.Prodcuto.Domain.Producto" table="Producto">
+
+        <composite-id name="id" class="com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoId" access="field">
+            <key-property name="value" column="id" access="field" length="36"/>
+        </composite-id>
+
+        <component name="nombre" class="com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoNombre" access="field">
+            <property name="value" column="nombre" access="field" type="string"/>
+        </component>
+
+        <component name="precio" class="com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoPrecio" access="field">
+            <property name="value" column="animal" access="field" type="int"/>
+        </component>
+
+        <component name="cantidad" class="com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoCantidad" access="field">
+            <property name="value" column="raza" access="field" type="int"/>
+        </component>
+    </class>
+</hibernate-mapping>
