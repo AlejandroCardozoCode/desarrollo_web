@@ -17,7 +17,7 @@ public class Paciente {
     private Optional<List<HistoriaClinica>> historiaClinicaPaciente;
 
 
-    public Paciente (){}
+    private Paciente (){}
 
 
     public Paciente(PacienteId id, PacienteNombre nombre, PacienteAnimal animal, PacienteRaza raza, PacienteEdad edad, PacienteIdCliente idCliente) {

@@ -17,12 +17,14 @@
     <bean id="EncontrarPaciente" class = "com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Application.Encontrar.EncontrarPaciente">
         <constructor-arg ref="PacienteRepositorio"/>
     </bean>
-
+    <bean id="AgregarHistoriaClinicaPaciente" class = "com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Application.AgregarHistoriaClinica.AgregadorHistoria">
+        <constructor-arg ref="PacienteRepositorio"/>
+    </bean>
 
     <!--Depedencias Producto -->
     <bean id="ProductoRepositorio" class="com.proyecto_desarrollo_web.demo.Producto.Infraestructure.Hibernate.HibernateProductoRepo"/>
 
-    <bean id="CrearProducto" class = "com.proyecto_desarrollo_web.demo.Producto.Application.CrearProducto.CrearProducto">
+    <bean id="CrearProducto" class = "com.proyecto_desarrollo_web.demo.Producto.Application.CrearProducto.CreadorProducto">
         <constructor-arg ref="ProductoRepositorio"/>
     </bean>
     <bean id="BuscarProducto" class = "com.proyecto_desarrollo_web.demo.Producto.Application.Buscar.BuscarProducto">

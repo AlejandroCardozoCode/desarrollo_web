@@ -22,7 +22,7 @@ public class CrearPaciente {
 
     public void validate(String id){
         Optional<Paciente> paciente = repo.buscar(new PacienteId(id));
-        if(paciente.isPresent()){
+        if(!paciente.isEmpty()){
             throw new ElPacienteYaExiste("Este paciente ya existe en la base de datos");
         }
     }

@@ -3,10 +3,13 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--Depedencias Doctor -->
     <bean id="DoctorRepository" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Infrastructure.Hibernate.HibernateDoctorRepository"/>
     <bean id="CrearDoctor" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.CrearDoctor.CrearDoctor">
         <constructor-arg ref="DoctorRepository"/>
     </bean>
+
+    <!--Depedencias Paciente -->
     <bean id="PacienteRepositorio" class="com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Infraestructure.Hibernate.HibernatePacienteRepo"/>
     <bean id="CrearPaciente" class = "com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Application.Crear.CrearPaciente">
         <constructor-arg ref="PacienteRepositorio"/>
@@ -14,4 +17,31 @@
     <bean id="EncontrarPaciente" class = "com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Application.Encontrar.EncontrarPaciente">
         <constructor-arg ref="PacienteRepositorio"/>
     </bean>
+    <bean id="AgregarHistoriaClinicaPaciente" class = "com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Application.AgregarHistoriaClinica.AgregadorHistoria">
+        <constructor-arg ref="PacienteRepositorio"/>
+    </bean>
+
+    <!--Depedencias Producto -->
+    <bean id="ProductoRepositorio" class="com.proyecto_desarrollo_web.demo.Producto.Infraestructure.Hibernate.HibernateProductoRepo"/>
+
+    <bean id="CrearProducto" class = "com.proyecto_desarrollo_web.demo.Producto.Application.CrearProducto.CreadorProducto">
+        <constructor-arg ref="ProductoRepositorio"/>
+    </bean>
+    <bean id="BuscarProducto" class = "com.proyecto_desarrollo_web.demo.Producto.Application.Buscar.BuscarProducto">
+        <constructor-arg ref="ProductoRepositorio"/>
+    </bean>
+    <bean id="EliminarProducto" class = "com.proyecto_desarrollo_web.demo.Producto.Application.EliminarProducto.EliminadorProducto">
+        <constructor-arg ref="ProductoRepositorio"/>
+    </bean>
+    <bean id="AgregarProducto" class = "com.proyecto_desarrollo_web.demo.Producto.Application.AgregarProducto.AgregadorProducto">
+        <constructor-arg ref="ProductoRepositorio"/>
+    </bean>
+    <bean id="ActualizarStock" class = "com.proyecto_desarrollo_web.demo.Producto.Application.ActualizarStock.ActualiadorStock">
+        <constructor-arg ref="ProductoRepositorio"/>
+    </bean>
+    <bean id="ActualizarPrecio" class = "com.proyecto_desarrollo_web.demo.Producto.Application.ActualizarPrecio.ActualizadorPrecio">
+        <constructor-arg ref="ProductoRepositorio"/>
+    </bean>
+
+
 </beans>

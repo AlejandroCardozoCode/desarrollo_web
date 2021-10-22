@@ -30,6 +30,11 @@
         <component name="idCliente" class="com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.ValueObjects.PacienteIdCliente" access="field">
             <property name="value" column="idCliente" access="field" type="string"/>
         </component>
+
+        <property name="historiaClinicaPaciente" column="historiaClinica" access="field">
+            <type name="com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Infraestructure.Hibernate.HistoriaClinicaCT">
+            </type>
+        </property>
         <!--FUNCION PARA LOS ESTUDIOS -->
     </class>
 </hibernate-mapping>
