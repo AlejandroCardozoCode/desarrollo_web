@@ -4,7 +4,7 @@ import com.proyecto_desarrollo_web.demo.Producto.Domain.Producto;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Cliente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Ports.ClienteRepo;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Services.ServicioBuscarCliente;
-import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Exceptions.CarritoComprasVacio;
+import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Exceptions.CarritoComprasVacio;
 
 import java.util.List;
 

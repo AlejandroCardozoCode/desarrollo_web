@@ -1,10 +1,9 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Infrastructure.Hibernate;
 
-import com.proyecto_desarrollo_web.demo.Shared.Domain.Infraestructure.Hibernate.HibernateRepository;
+import com.proyecto_desarrollo_web.demo.Shared.Infraestructure.Hibernate.HibernateRepository;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Doctor;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Ports.DoctorRepositorio;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.DocId;
-import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;

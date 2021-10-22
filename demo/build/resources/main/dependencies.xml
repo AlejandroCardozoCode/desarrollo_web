@@ -7,4 +7,11 @@
     <bean id="CrearDoctor" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.CrearDoctor.CrearDoctor">
         <constructor-arg ref="DoctorRepository"/>
     </bean>
+    <bean id="PacienteRepositorio" class="com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Infraestructure.Hibernate.HibernatePacienteRepo"/>
+    <bean id="CrearPaciente" class = "com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Application.Crear.CrearPaciente">
+        <constructor-arg ref="PacienteRepositorio"/>
+    </bean>
+    <bean id="EncontrarPaciente" class = "com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Application.Encontrar.EncontrarPaciente">
+        <constructor-arg ref="PacienteRepositorio"/>
+    </bean>
 </beans>

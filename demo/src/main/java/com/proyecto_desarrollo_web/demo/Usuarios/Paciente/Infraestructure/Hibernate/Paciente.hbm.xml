@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente" table="Paciente">
+
+        <composite-id name="id" class="com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.ValueObjects.PacienteId" access="field">
+            <key-property name="value" column="id" access="field" length="36"/>
+        </composite-id>
+
+        <component name="nombre" class="com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.ValueObjects.PacienteNombre" access="field">
+            <property name="value" column="nombre" access="field" type="string"/>
+        </component>
+
+        <component name="animal" class="com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.ValueObjects.PacienteAnimal" access="field">
+            <property name="value" column="animal" access="field" type="string"/>
+        </component>
+
+        <component name="raza" class="com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.ValueObjects.PacienteRaza" access="field">
+            <property name="value" column="raza" access="field" type="string"/>
+        </component>
+
+        <component name="edad" class="com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.ValueObjects.PacienteEdad" access="field">
+            <property name="value" column="edad" access="field" type="int"/>
+        </component>
+
+        <component name="idCliente" class="com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.ValueObjects.PacienteIdCliente" access="field">
+            <property name="value" column="idCliente" access="field" type="string"/>
+        </component>
+        <!--FUNCION PARA LOS ESTUDIOS -->
+    </class>
+</hibernate-mapping>
