@@ -7,6 +7,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.usertype.UserType;
 
+import javax.print.Doc;
 import java.io.Serializable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,18 +17,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
-public class HistoriaClinicaCT implements UserType {
+public class DoctorAsignadoCT implements UserType {
     @Override
     public int[] sqlTypes() {
-        return new int[] {
-            Types.LONGNVARCHAR};
+        return new int[] {Types.LONGNVARCHAR};
     }
 
     @Override
     public Class returnedClass() {
-        return List.class;
+        return DoctorAsignado.class;
     }
 
     @Override
@@ -43,35 +42,35 @@ public class HistoriaClinicaCT implements UserType {
     @Override
     public Object nullSafeGet(ResultSet rs, String[] names, SharedSessionContractImplementor session, Object owner) throws HibernateException, SQLException {
 
-        HistoriaClinicaPaciente response = null;
+        DoctorAsignado response = null;
         try {
             Optional<String> value = Optional.ofNullable(rs.getString(names[0]));
             if(value.isPresent()){
                 HashMap<String, Object> mapper = new ObjectMapper().readValue(value.get(), HashMap.class);
-                response = new HistoriaClinicaPaciente((String) mapper.get("valoracion"), (String) mapper.get("medicamentos"));
+                response = new DoctorAsignado((String) mapper.get("idDoctor"), (String) mapper.get("nombreDoctor"));
             }
         }
         catch (Exception e){
-            throw new HibernateException("Error at reading map of Historia Clinica");
+            throw new HibernateException("Error at reading map of Doctro Asignado");
         }
         return Optional.ofNullable(response);
     }
 
     @Override
     public void nullSafeSet(PreparedStatement st, Object value, int index, SharedSessionContractImplementor session) throws HibernateException, SQLException {
-        Optional<HistoriaClinicaPaciente> object = (value == null) ? Optional.empty() : (Optional<HistoriaClinicaPaciente>) value;
+        Optional<DoctorAsignado> object = (value == null) ? Optional.empty() : (Optional<DoctorAsignado>) value;
         try {
             if(object.isEmpty()){
                 st.setNull(index, Types.VARCHAR);
             }
             else{
-                ObjectMapper mapper = new ObjectMapper();
-                String serializedObject = mapper.writeValueAsString(object.get().data());
-                st.setString(index, serializedObject);
+               ObjectMapper mapper = new ObjectMapper();
+               String serializedObject = mapper.writeValueAsString(object.get().data());
+               st.setString(index, serializedObject);
             }
         }
         catch (Exception e){
-            throw new HibernateException("Error at reading map of Historia Clinica");
+            throw new HibernateException("Error at reading map of Doctro Asignado");
         }
     }
 
