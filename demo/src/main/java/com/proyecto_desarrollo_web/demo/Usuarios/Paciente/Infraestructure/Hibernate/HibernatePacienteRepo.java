@@ -17,12 +17,12 @@ public class HibernatePacienteRepo extends HibernateRepository<Paciente> impleme
     }
 
     @Override
-    public void guardar(Paciente actual) {
+    public void save(Paciente actual) {
         persist(actual);
     }
 
     @Override
-    public Optional<Paciente> buscar(PacienteId id) {
+    public Optional<Paciente> find(PacienteId id) {
         return byId(id);
     }
 }

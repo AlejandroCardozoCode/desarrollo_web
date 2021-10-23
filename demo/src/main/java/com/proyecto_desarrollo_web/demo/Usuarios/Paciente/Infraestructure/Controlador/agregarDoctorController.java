@@ -1,6 +1,7 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Infraestructure.Controlador;
 
-import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Application.AgregarHistoriaClinica.AgregadorHistoria;
+import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Exceptions.idDoctorNoEncontrado;
+import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Application.AgregarDoctorAsignado.AgregadorDoctorAsignado;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Exceptions.idPacienteNoEncontrado;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -11,15 +12,14 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping(value = "/Paciente")
-public class agregarHistoriaClinicaController {
+public class agregarDoctorController {
 
     @Autowired
-    private AgregadorHistoria agregador;
-
-    @PostMapping(value = "/agregar_historia_medica")
+    private AgregadorDoctorAsignado agregador;
+    @PostMapping(value = "/agregar_doctor_asignado")
     public ResponseEntity execute(@RequestBody Request request){
-       this.agregador.execute(request.getIdPaciente(), request.getValoracion(), request.getMedicamentos());
-       return ResponseEntity.status(HttpStatus.OK).body(null);
+        this.agregador.execute(request.getIdPaciente(), request.getIdDoctor(), request.getNombre());
+        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
     @ExceptionHandler(idPacienteNoEncontrado.class)
@@ -30,12 +30,19 @@ public class agregarHistoriaClinicaController {
         }};
         return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
     }
-
+    @ExceptionHandler({idDoctorNoEncontrado.class})
+    @ResponseStatus(code = HttpStatus.CONFLICT)
+    public ResponseEntity<HashMap> handlerPacienteExiste(RuntimeException exception){
+        HashMap<String, String> response = new HashMap<>(){{
+            put("Error", exception.getMessage());
+        }};
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
     static class Request{
 
         private String idPaciente;
-        private String valoracion;
-        private String medicamentos;
+        private String idDoctor;
+        private String nombre;
 
         public Request(){}
 
@@ -47,23 +54,21 @@ public class agregarHistoriaClinicaController {
             this.idPaciente = idPaciente;
         }
 
-        public String getValoracion() {
-            return valoracion;
+        public String getIdDoctor() {
+            return idDoctor;
         }
 
-        public void setValoracion(String valoracion) {
-            this.valoracion = valoracion;
+        public void setIdDoctor(String idDoctor) {
+            this.idDoctor = idDoctor;
         }
 
-        public String getMedicamentos() {
-            return medicamentos;
+        public String getNombre() {
+            return nombre;
         }
 
-        public void setMedicamentos(String medicamentos) {
-            this.medicamentos = medicamentos;
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
         }
     }
-
-
 
 }

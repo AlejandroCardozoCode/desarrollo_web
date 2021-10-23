@@ -6,6 +6,6 @@ import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.ValueObjects.Pa
 import java.util.Optional;
 
 public interface PacienteRepositorio {
-    void guardar(Paciente actual);
-    Optional<Paciente> buscar(PacienteId id);
+    void save(Paciente actual);
+    Optional<Paciente> find(PacienteId id);
 }

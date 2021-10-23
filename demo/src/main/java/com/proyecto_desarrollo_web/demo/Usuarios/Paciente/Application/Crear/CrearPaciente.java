@@ -17,11 +17,11 @@ public class CrearPaciente {
     public void execute(String id, String nombre, String animal, String idCliente, Integer edad, String raza){
         validate(id);
         Paciente paciente = Paciente.crear(new PacienteId(id),new PacienteNombre(nombre), new PacienteAnimal(animal), new PacienteRaza(raza), new PacienteEdad(edad), new PacienteIdCliente(idCliente));
-        repo.guardar(paciente);
+        repo.save(paciente);
     }
 
     public void validate(String id){
-        Optional<Paciente> paciente = repo.buscar(new PacienteId(id));
+        Optional<Paciente> paciente = repo.find(new PacienteId(id));
         if(!paciente.isEmpty()){
             throw new ElPacienteYaExiste("Este paciente ya existe en la base de datos");
         }

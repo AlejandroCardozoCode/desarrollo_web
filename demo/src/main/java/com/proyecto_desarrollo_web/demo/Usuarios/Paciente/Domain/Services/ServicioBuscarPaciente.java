@@ -15,7 +15,7 @@ public class ServicioBuscarPaciente {
     }
 
     public Paciente execute(String id){
-        Optional<Paciente> pacienteOptional = repo.buscar(new PacienteId((id)));
+        Optional<Paciente> pacienteOptional = repo.find(new PacienteId((id)));
         if(pacienteOptional.isEmpty()){
             throw new idPacienteNoEncontrado("El id del paciente no ha sido encontrado");
         }

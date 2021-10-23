@@ -1,6 +1,8 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain;
 
 import com.proyecto_desarrollo_web.demo.Shared.Entities.HistoriaClinica;
+import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Entities.DoctorAsignado;
+import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Entities.HistoriaClinicaPaciente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.ValueObjects.*;
 
 import java.util.List;
@@ -14,11 +16,11 @@ public class Paciente {
     private PacienteRaza raza;
     private PacienteEdad edad;
     private PacienteIdCliente idCliente;
-    private Optional<List<HistoriaClinica>> historiaClinicaPaciente;
+    private Optional<DoctorAsignado> doctor;
+    private Optional<HistoriaClinicaPaciente> historiaClinicaPaciente;
 
 
     private Paciente (){}
-
 
     public Paciente(PacienteId id, PacienteNombre nombre, PacienteAnimal animal, PacienteRaza raza, PacienteEdad edad, PacienteIdCliente idCliente) {
         this.id = id;
@@ -27,6 +29,7 @@ public class Paciente {
         this.raza = raza;
         this.edad = edad;
         this.idCliente = idCliente;
+        this.doctor = Optional.empty();
         this.historiaClinicaPaciente = Optional.empty();
     }
 
@@ -35,13 +38,8 @@ public class Paciente {
         return pacienteNuevo;
     }
 
-    public List<HistoriaClinica> verHistorialMedicoPaciente(){
-        return this.historiaClinicaPaciente.get();
-    }
-
-    public void agregarHistoriaClinica(HistoriaClinica cita)
-    {
-        this.historiaClinicaPaciente.get().add(cita);
+    public void agregarHistoriClinica(Optional<HistoriaClinicaPaciente>historiaClinica) {
+        this.historiaClinicaPaciente = historiaClinica;
     }
 
     @Override
@@ -55,5 +53,10 @@ public class Paciente {
     @Override
     public int hashCode() {
         return Objects.hash(id, nombre, animal, raza, edad, idCliente, historiaClinicaPaciente);
+    }
+
+
+    public void agregarDoctorAsignado(Optional<DoctorAsignado> opt) {
+        this.doctor = opt;
     }
 }

@@ -35,6 +35,11 @@
             <type name="com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Infraestructure.Hibernate.HistoriaClinicaCT">
             </type>
         </property>
+
+        <property name="doctor" column="doctor" access="field">
+            <type name="com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Infraestructure.Hibernate.DoctorAsignadoCT">
+            </type>
+        </property>
         <!--FUNCION PARA LOS ESTUDIOS -->
     </class>
 </hibernate-mapping>
