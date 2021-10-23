@@ -1,4 +1,4 @@
-package com.proyecto_desarrollo_web.demo.Usuarios.Cliente;
+package com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain;
 
 import com.proyecto_desarrollo_web.demo.Producto.Domain.Producto;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente;

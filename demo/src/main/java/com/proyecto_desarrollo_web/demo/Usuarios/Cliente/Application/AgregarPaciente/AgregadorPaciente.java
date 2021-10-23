@@ -2,7 +2,7 @@ package com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Application.AgregarPac
 
 
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente;
-import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Cliente;
+import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Cliente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Ports.ClienteRepo;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Services.ServicioBuscarCliente;
 

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Cliente" table="Cliente">
+        <composite-id name="id" class="com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.ValueObjects.ClienteId" access="field">
+            <key-property name="value" column="id" access="field" length="36"/>
+        </composite-id>
+
+        <component name="nombre" class="com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.ValueObjects.ClienteNombre" access="field">
+        <property name="value" column="nombre" access="field" type="string"/>
+        </component>
+
+        <component name="usuario" class="com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.ValueObjects.ClienteUsuario" access="field">
+            <property name="value" column="usuario" access="field" type="string"/>
+        </component>
+
+        <component name="contrasena" class="com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.ValueObjects.ClienteContra" access="field">
+            <property name="value" column="contrasena" access="field" type="string"/>
+        </component>
+
+        <component name="numero" class="com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.ValueObjects.ClienteNumero" access="field">
+            <property name="value" column="numero" access="field" type="int"/>
+        </component>
+
+        <property name="arregloMascotas" column="arregloMascotas" access="field">
+            <type name="com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Infraestructure.Hibernate.PacienteCustomType">
+            </type>
+        </property>
+    </class>
+</hibernate-mapping>
