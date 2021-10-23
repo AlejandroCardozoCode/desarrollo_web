@@ -19,6 +19,6 @@ public class ActualiadorStock {
     public void execute(Integer cantidad, String id){
         Producto producto = servicioBuscarProducto.execute(id);
         producto.actualizarCantidad(new ProductoCantidad(cantidad));
-        repo.guardar(producto);
+        repo.save(producto);
     }
 }

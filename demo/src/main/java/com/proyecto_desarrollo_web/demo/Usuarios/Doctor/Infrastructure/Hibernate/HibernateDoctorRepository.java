@@ -23,7 +23,7 @@ public class HibernateDoctorRepository extends HibernateRepository<Doctor> imple
     }
 
     @Override
-    public void guardar(Doctor actual) {
+    public void save(Doctor actual) {
         persist(actual);
     }
 
@@ -43,18 +43,7 @@ public class HibernateDoctorRepository extends HibernateRepository<Doctor> imple
     }
 
     @Override
-    public Optional<List<Doctor>> encontrarID(DocId id) {
-        Doctor doctor = null;
-        CriteriaBuilder cb = sessionFactory.getCriteriaBuilder();
-        CriteriaQuery<Doctor> cr = cb.createQuery(Doctor.class);
-        Root<Doctor> root = cr.from(Doctor.class);
-        cr.select(root).where(cb.equal(root.get("DocId"), id));
-        List<Doctor> doctors = sessionFactory.getCurrentSession().createQuery(cr).getResultList();
-        return Optional.ofNullable(doctors);
-    }
-
-    @Override
-    public Optional<Doctor> encotrar(DocId id) {
+    public Optional<Doctor> find(DocId id) {
         return byId(id);
     }
 }

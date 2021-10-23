@@ -5,7 +5,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.proyecto_desarrollo_web.demo.Prodcuto.Domain.Producto" table="Producto">
+    <class name="com.proyecto_desarrollo_web.demo.Producto.Domain.Producto" table="Producto">
 
         <composite-id name="id" class="com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoId" access="field">
             <key-property name="value" column="id" access="field" length="36"/>
@@ -16,11 +16,11 @@
         </component>
 
         <component name="precio" class="com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoPrecio" access="field">
-            <property name="value" column="animal" access="field" type="int"/>
+            <property name="value" column="precio" access="field" type="int"/>
         </component>
 
         <component name="cantidad" class="com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoCantidad" access="field">
-            <property name="value" column="raza" access="field" type="int"/>
+            <property name="value" column="cantidad" access="field" type="int"/>
         </component>
     </class>
 </hibernate-mapping>

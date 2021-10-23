@@ -20,7 +20,7 @@ public class buscarProductoController {
 
     @PostMapping(value = "/busqueda")
     public ResponseEntity excecute(@RequestBody BusquedaRequest request){
-        this.buscar.busqueda(request.getId());
+        this.buscar.execute(request.getId());
         return ResponseEntity.status(HttpStatus.FOUND).body(null);
     }
 

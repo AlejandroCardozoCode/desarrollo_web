@@ -15,14 +15,14 @@ public class CrearDoctor {
         this.repositorio = repositorio;
     }
 
-    public void execute(String id,Integer cedula, String estudios, Integer horarioInicial, Integer horarioFinal, String nombre, String contra){
+    public void execute(String id, String nombre,Integer cedula, Integer horarioInicial, Integer horarioFinal, String usuario , String contra){
         this.validate(id);
-        Doctor doctor = Doctor.Create( new DocId(id), new DocNombre(nombre), new DocCedula(cedula), new DocHorarioInicial(horarioInicial), new DocHorarioFinal(horarioFinal), new DocUsuario(estudios), new DocContrasenna(contra));
-        repositorio.guardar(doctor);
+        Doctor doctor = Doctor.Create(new DocId(id),new DocNombre(nombre), new DocCedula(cedula), new DocHorarioInicial(horarioInicial), new DocHorarioFinal(horarioFinal), new DocUsuario(usuario), new DocContrasenna(contra));
+        repositorio.save(doctor);
     }
     private void validate(String docId)
     {
-        Optional<Doctor> doctor = repositorio.encotrar(new DocId(docId));
+        Optional<Doctor> doctor = repositorio.find(new DocId(docId));
         if(doctor.isPresent())
         {
             throw new DocAlreadyExist("El doctor con id:" + docId + "ya existe");

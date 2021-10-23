@@ -37,8 +37,8 @@ public class crearProductoController {
 
         private String id;
         private String nombre;
-        private int precio;
-        private int cantidad;
+        private Integer precio;
+        private Integer cantidad;
 
         public ProductoRequest(){}
 
@@ -58,19 +58,19 @@ public class crearProductoController {
             this.nombre = nombre;
         }
 
-        public int getPrecio() {
+        public Integer getPrecio() {
             return precio;
         }
 
-        public void setPrecio(int precio) {
+        public void setPrecio(Integer precio) {
             this.precio = precio;
         }
 
-        public int getCantidad() {
+        public Integer getCantidad() {
             return cantidad;
         }
 
-        public void setCantidad(int cantidad) {this.cantidad = cantidad;}
+        public void setCantidad(Integer cantidad) {this.cantidad = cantidad;}
 
     }
 

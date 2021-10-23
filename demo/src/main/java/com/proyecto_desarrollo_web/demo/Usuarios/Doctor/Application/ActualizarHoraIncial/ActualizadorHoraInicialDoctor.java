@@ -18,6 +18,6 @@ public class ActualizadorHoraInicialDoctor {
     public void execute(Integer horaInicial, String id){
         Doctor doctor = servicioBuscarDoctorDominio.excecute(id);
         doctor.actualizarHoraInicial(new DocHorarioInicial(horaInicial));
-        repo.guardar(doctor);
+        repo.save(doctor);
     }
 }

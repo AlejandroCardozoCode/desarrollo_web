@@ -8,6 +8,4 @@ public class ProductoId extends CustomUUID {
     {
         super(value);
     }
-
-
 }

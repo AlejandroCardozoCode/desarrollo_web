@@ -19,6 +19,7 @@ public class Doctor {
     private Optional<List<Paciente>> arregloPacientes;
     private Optional<List<HistoriaClinica>> arregloHistoriasDoc;
 
+    private Doctor(){}
     public Doctor(DocId id,DocNombre nombre, DocCedula cedula, DocHorarioInicial horarioInicial, DocHorarioFinal horarioFinal, DocUsuario usuario, DocContrasenna contra) {
         this.id = id;
         this.nombre = nombre;

@@ -29,8 +29,10 @@ public class HibernateConfigFactory {
         sessionFactory.setHibernateProperties(this.hibernateProperties());
 
         FileSystemResource resource1 = new FileSystemResource("./src/main/java/com/proyecto_desarrollo_web/demo/Usuarios/Paciente/Infraestructure/Hibernate/Paciente.hbm.xml");
+//        FileSystemResource resource2 = new FileSystemResource("./src/main/java/com/proyecto_desarrollo_web/demo/Producto/Infraestructure/Hibernate/Producto.hbm.xml");
+        FileSystemResource resource3 = new FileSystemResource("./src/main/java/com/proyecto_desarrollo_web/demo/Usuarios/Doctor/Infrastructure/Hibernate/Doctor.hbm.xml");
 
-        sessionFactory.setMappingLocations(resource1);
+        sessionFactory.setMappingLocations(resource1, resource3);
         return sessionFactory;
     }
     @Bean("transactional-manager")

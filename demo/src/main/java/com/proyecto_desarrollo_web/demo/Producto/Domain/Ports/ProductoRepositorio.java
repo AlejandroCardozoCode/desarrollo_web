@@ -6,6 +6,6 @@ import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoId;
 import java.util.Optional;
 
 public interface ProductoRepositorio {
-    void guardar(Producto actual);
-    Optional<Producto> buscar(ProductoId id);
+    void save(Producto actual);
+    Optional<Producto> find(ProductoId id);
 }

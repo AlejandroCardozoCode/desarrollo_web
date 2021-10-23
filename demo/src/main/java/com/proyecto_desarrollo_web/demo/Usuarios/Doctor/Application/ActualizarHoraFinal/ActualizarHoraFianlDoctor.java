@@ -19,6 +19,6 @@ public class ActualizarHoraFianlDoctor {
     public void execute(Integer horaFinal, String id){
         Doctor doctor = servicioBuscarDoctorDominio.excecute(id);
         doctor.actualizarHoraFinal(new DocHorarioFinal(horaFinal));
-        repo.guardar(doctor);
+        repo.save(doctor);
     }
 }

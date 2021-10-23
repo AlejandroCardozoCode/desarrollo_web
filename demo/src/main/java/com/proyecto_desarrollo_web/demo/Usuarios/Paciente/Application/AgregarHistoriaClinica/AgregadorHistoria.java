@@ -30,7 +30,7 @@ public class AgregadorHistoria {
 
         HistoriaClinica citaNueva = new HistoriaClinica(idDoctor,idPaciente,horaCita, diaCita,mesCita,nombrePaciente, valoracion);
         doc.agregarCita(citaNueva);
-        repo.guardar(doc);
+        repo.save(doc);
         paciente.agregarHistoriaClinica(citaNueva);
         repoPaciente.guardar(paciente);
 

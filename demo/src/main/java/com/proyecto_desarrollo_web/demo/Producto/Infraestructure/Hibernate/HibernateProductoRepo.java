@@ -17,12 +17,12 @@ public class HibernateProductoRepo extends HibernateRepository<Producto> impleme
     }
 
     @Override
-    public void guardar(Producto actual) {
+    public void save(Producto actual) {
         persist(actual);
     }
 
     @Override
-    public Optional<Producto> buscar(ProductoId id) {
+    public Optional<Producto> find(ProductoId id) {
         return byId(id);
     }
 }

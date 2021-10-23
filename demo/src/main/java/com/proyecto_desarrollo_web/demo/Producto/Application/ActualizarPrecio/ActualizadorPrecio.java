@@ -20,6 +20,6 @@ public class ActualizadorPrecio {
     public void execute(Integer precio, String id){
         Producto producto = servicioBuscarProducto.execute(id);
         producto.actualizarPrecio(new ProductoPrecio(precio));
-        repo.guardar(producto);
+        repo.save(producto);
     }
 }

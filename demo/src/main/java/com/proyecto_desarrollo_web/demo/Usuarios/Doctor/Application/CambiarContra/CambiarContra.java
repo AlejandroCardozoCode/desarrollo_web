@@ -21,5 +21,6 @@ public class CambiarContra {
     public void execute(String id, String nuevaContra){
         Doctor doctor = servicioBuscarDoctorDominio.excecute(id);
         doctor.actualizarContra(new DocContrasenna(nuevaContra));
+        repo.save(doctor);
     }
 }

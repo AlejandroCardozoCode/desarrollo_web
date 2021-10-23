@@ -4,27 +4,35 @@
         "-//Hibernate/Hibernate Mapping DTD//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-    <class name="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Doctor" table="doctor">
+    <class name="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Doctor" table="Doctor">
         <composite-id name="id" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.DocId" access="field">
-            <key-property name="value" column="id" access="field" length="30"/>
+            <key-property name="value" column="id" access="field" length="36"/>
         </composite-id>
 
         <component name="nombre" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.DocNombre" access="field">
             <property name="value" column="nombre" access="field" type="string"/>
         </component>
 
+        <component name="cedula" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.DocCedula" access="field">
+            <property name="value" column="cedula" access="field" type="integer"/>
+        </component>
+
         <component name="horarioInicial" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.DocHorarioInicial" access="field">
-            <property name="value" column="horarioInicial" access="field" type="integer"/>
+            <property name="value" column="horaInicial" access="field" type="integer"/>
         </component>
 
         <component name="horarioFinal" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.DocHorarioFinal" access="field">
-            <property name="value" column="horarioFinal" access="field" type="integer"/>
+            <property name="value" column="horaFinal" access="field" type="integer"/>
         </component>
 
+        <component name="usuario" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.DocUsuario" access="field">
+            <property name="value" column="usuario" access="field" type="string"/>
+        </component>
+        <component name="contrasenna" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.DocContrasenna" access="field">
+            <property name="value" column="contrasenna" access="field" type="string"/>
+        </component>
         <!--FUNCION PARA LOS ESTUDIOS -->
 
-        <component name="cedula" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.DocCedula" access="field">
-            <property name="value" column="cc" access="field" type="integer"/>
-        </component>
+
     </class>
 </hibernate-mapping>

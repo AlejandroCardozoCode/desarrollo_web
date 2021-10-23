@@ -18,7 +18,7 @@ public class DocNombre extends StringValueObject {
     }
 
     private void validarCaracteres(String nombre) {
-        Pattern p = Pattern.compile("^[a-zA-Z]*$");
+        Pattern p = Pattern.compile("^[\\p{L} .'-]+$");
         if (!p.matcher(nombre).find()) {
             throw new NombreCaracteresNoValidos("el nombre contiene caracteres no validos");
 

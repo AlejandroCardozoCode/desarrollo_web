@@ -13,9 +13,9 @@ public class DocHorarioInicial extends IntegerValueObject {
     }
 
     private void validar(Integer horarioInicial) {
-        if(horarioInicial < 0 || horarioInicial > 24)
+        if(horarioInicial < 0 || horarioInicial > 12)
         {
-            throw new HorarioInicialNoValido("la hora inicial no es valida");
+            throw new HorarioInicialNoValido("La hora inicial no es valida");
         }
     }
 }

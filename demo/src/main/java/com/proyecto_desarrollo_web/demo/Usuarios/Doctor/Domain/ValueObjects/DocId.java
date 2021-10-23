@@ -9,6 +9,7 @@ import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Exceptions.IdNoVa
 import java.util.regex.Pattern;
 
 public class DocId extends CustomUUID {
+    private DocId(){}
     public DocId(String value)
     {
         super(value);

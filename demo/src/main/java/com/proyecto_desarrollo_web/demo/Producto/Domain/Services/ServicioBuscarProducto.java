@@ -16,7 +16,7 @@ public class ServicioBuscarProducto {
     }
 
     public Producto execute(String id){
-        Optional<Producto> producto = repo.buscar(new ProductoId(id));
+        Optional<Producto> producto = repo.find(new ProductoId(id));
         if(producto.isEmpty()){
             throw new IdProductoNoEncontrado("No se ha encontrado el id del producto");
         }

@@ -26,7 +26,7 @@ public class AgregardorListaPacientes {
         Paciente paciente = servicioBuscarPaciente.execute(id);
         Doctor doctor = servicioBuscarDoctorDominio.excecute(idDoc);
         doctor.agregarPacienteListaPacientes(paciente);
-        repoDoc.guardar(doctor);
+        repoDoc.save(doctor);
 
     }
 }

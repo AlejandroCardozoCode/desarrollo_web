@@ -19,6 +19,6 @@ public class CreadorProducto {
     public void execute(String id, String nombre, Integer precio, Integer cantidad){
 
         Producto producto = Producto.crear(new ProductoId(id), new ProductoNobmre(nombre), new ProductoPrecio(precio), new ProductoCantidad(cantidad));
-        repo.guardar(producto);
+        repo.save(producto);
     }
 }

@@ -16,7 +16,7 @@ public class ServicioBuscarDoctorDominio {
     }
 
     public Doctor excecute(String id){
-        Optional<Doctor> docOptional = repo.encotrar(new DocId(id));
+        Optional<Doctor> docOptional = repo.find(new DocId(id));
         if(docOptional.isEmpty()) {
             throw new idDoctorNoEncontrado("El id del doctor no ha sido encontrado");
         }
