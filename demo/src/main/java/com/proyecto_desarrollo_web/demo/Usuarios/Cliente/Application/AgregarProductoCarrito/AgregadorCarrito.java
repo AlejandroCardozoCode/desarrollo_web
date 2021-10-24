@@ -4,8 +4,11 @@ import com.proyecto_desarrollo_web.demo.Producto.Domain.Ports.ProductoRepositori
 import com.proyecto_desarrollo_web.demo.Producto.Domain.Producto;
 import com.proyecto_desarrollo_web.demo.Producto.Domain.Services.ServicioBuscarProducto;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Cliente;
+import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Entities.ProductoCom;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Ports.ClienteRepo;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Services.ServicioBuscarCliente;
+
+import java.util.Optional;
 
 public class AgregadorCarrito {
     private ClienteRepo repo;
@@ -21,9 +24,10 @@ public class AgregadorCarrito {
        servicioBuscarProducto = new ServicioBuscarProducto(this.repoProducto);
    }
 
-   public  void execute(String id, String idProducto){
+   public  void execute(String id, String idProducto, String nombre, Integer precio, Integer cantidad){
        Cliente cliente = servicioBuscarCliente.excecute(id);
-       Producto producto = servicioBuscarProducto.execute(idProducto);
-       cliente.agregarCarrito(producto);
+       ProductoCom producto = new ProductoCom(idProducto,nombre,precio,cantidad);
+       Optional<ProductoCom> opt = Optional.of(producto);
+       cliente.agregarCarrito(opt);
    }
 }

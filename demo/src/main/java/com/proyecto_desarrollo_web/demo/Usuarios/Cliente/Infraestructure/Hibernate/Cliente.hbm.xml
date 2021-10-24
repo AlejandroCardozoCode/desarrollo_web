@@ -30,5 +30,17 @@
             <type name="com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Infraestructure.Hibernate.PacienteCustomType">
             </type>
         </property>
+
+        <property name="productosComprados" column="productosComprados" access="field">
+            <type name="com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Infraestructure.Hibernate.ProductoComCustomType">
+            </type>
+        </property>
+
+        <property name="productosSinComprar" column="productosSinComprar" access="field">
+            <type name="com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Infraestructure.Hibernate.ProductoComCustomType">
+            </type>
+        </property>
+
+
     </class>
 </hibernate-mapping>

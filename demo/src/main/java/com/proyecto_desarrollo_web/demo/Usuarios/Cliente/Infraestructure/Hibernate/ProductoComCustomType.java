@@ -1,7 +1,6 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Infraestructure.Hibernate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Entities.PacienteCli;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Entities.ProductoCom;
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
@@ -47,8 +46,10 @@ public class ProductoComCustomType implements UserType {
             Optional<String> value = Optional.ofNullable(rs.getString(names[0]));
             if(value.isPresent()){
                 List<HashMap<String, Object>> objects = new ObjectMapper().readValue(value.get(),List.class);
-
-
+                response = objects.stream().map(element -> new ProductoCom((String) element.get("id"),
+                        (String) element.get("nombre"),
+                        (Integer) element.get("precio"),
+                        (Integer) element.get("cantidad"))).collect(Collectors.toList());
             }
         }
         catch (Exception e){
@@ -59,7 +60,21 @@ public class ProductoComCustomType implements UserType {
 
     @Override
     public void nullSafeSet(PreparedStatement st, Object value, int index, SharedSessionContractImplementor session) throws HibernateException, SQLException {
-
+        Optional<List<ProductoCom>> object = (value == null)? Optional.empty() : (Optional<List<ProductoCom>>) value;
+        try {
+            if(object.isEmpty()){
+                st.setNull(index,Types.VARCHAR);
+            }
+            else {
+                ObjectMapper mapper = new ObjectMapper();
+                List<HashMap<String,Object>> objects = object.get().stream().map( element -> element.data()).collect(Collectors.toList());
+                String serializedObject = mapper.writeValueAsString(objects).replace("\\", "");
+                st.setString(index,serializedObject);
+            }
+        }
+        catch (Exception e){
+            throw new HibernateException("Error at serialaizing map of Lista Producto Compra " + e.toString());
+        }
     }
 
     @Override

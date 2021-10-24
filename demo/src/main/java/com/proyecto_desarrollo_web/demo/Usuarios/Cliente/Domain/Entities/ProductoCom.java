@@ -15,6 +15,15 @@ public class ProductoCom {
         this.precio = precio;
         this.cantidad = cantidad;
     }
+
+    public Integer getPrecio() {
+        return precio;
+    }
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
     public HashMap<String, Object> data(){
         return new HashMap<>(){{
             put("id",id);

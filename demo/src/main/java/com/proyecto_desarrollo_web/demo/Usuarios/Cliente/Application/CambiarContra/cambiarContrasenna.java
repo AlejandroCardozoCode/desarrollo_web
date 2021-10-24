@@ -5,12 +5,12 @@ import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Ports.ClienteRep
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Services.ServicioBuscarCliente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.ValueObjects.ClienteContra;
 
-public class cambiarContrasenna {
+public class CambiarContrasenna {
 
     private ClienteRepo repo;
     private ServicioBuscarCliente servicioBuscarCliente;
 
-    public cambiarContrasenna(ClienteRepo repo){
+    public CambiarContrasenna(ClienteRepo repo){
         this.repo = repo;
         servicioBuscarCliente = new ServicioBuscarCliente(this.repo);
     }

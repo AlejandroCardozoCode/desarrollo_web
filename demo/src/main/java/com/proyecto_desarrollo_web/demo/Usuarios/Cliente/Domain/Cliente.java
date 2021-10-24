@@ -1,6 +1,9 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain;
 
 import com.proyecto_desarrollo_web.demo.Producto.Domain.Producto;
+import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoCantidad;
+import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Entities.PacienteCli;
+import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Entities.ProductoCom;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.ValueObjects.*;
 
@@ -13,9 +16,9 @@ public class Cliente {
     private ClienteUsuario usuario;
     private ClienteContra contrasena;
     private ClienteNumero numero;
-    private Optional<List<Paciente>> arregloMascotas;
-    private Optional<List<Producto>> productosComprados;
-    private Optional<List<Producto>> productosSinComprar;
+    private Optional<PacienteCli> arregloMascotas;
+    private Optional<ProductoCom> productosComprados;
+    private Optional<ProductoCom> productosSinComprar;
 
     public Cliente(ClienteId id, ClienteNombre nombre, ClienteUsuario usuario, ClienteContra contrasena, ClienteNumero numero) {
         this.id = id;
@@ -38,27 +41,24 @@ public class Cliente {
         this.contrasena = contraNueva;
     }
 
-    public void agregarMascota(Paciente paciente){
-        this.arregloMascotas.get().add(paciente);
+    public void agregarMascota(Optional<PacienteCli> paciente){
+        this.arregloMascotas = paciente;
     }
 
-    public List<Producto> verProductosCarrito(){
-        return this.productosSinComprar.get();
+    public Optional<ProductoCom> verProductosCarrito(){
+        return this.productosSinComprar;
     }
 
     public Integer precioCarrito(){
         Integer valor = 0;
-        for(int i= 0 ; i< productosSinComprar.get().size(); i++)
-        {
-            valor = valor + productosSinComprar.get().get(i).precio().value();
-        }
+        valor = productosSinComprar.get().getCantidad() * productosSinComprar.get().getPrecio();
         return valor;
     }
-    public void agregarCarrito(Producto producto){
-        this.productosSinComprar.get().add(producto);
+    public void agregarCarrito(Optional<ProductoCom> producto){
+        this.productosSinComprar = producto;
     }
-    public void agregarCarritoFinal(Producto producto){
-        this.productosComprados.get().add(producto);
+    public void agregarCarritoFinal(Optional<ProductoCom> producto){
+        this.productosComprados = producto;
     }
 
 }

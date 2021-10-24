@@ -3,6 +3,20 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--Depedencias Cliente -->
+    <bean id="ClienteRepositorio" class="com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Infraestructure.Hibernate.HibernateClienteRepo"/>
+    <!--Controlador crear cliente -->
+    <bean id="CrearCliente" class = "com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Application.Crear.CrearCliente">
+        <constructor-arg ref="ClienteRepositorio"/>
+    </bean>
+    <!--Controlador cambiar contra cliente -->
+    <bean id="CambiarContrasenna" class = "com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Application.CambiarContra.CambiarContrasenna">
+        <constructor-arg ref="ClienteRepositorio"/>
+    </bean>
+    <!--Controlador agregar carrito cliente -->
+    <bean id="AgregadorCarrito" class = "com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Application.AgregarProductoCarrito.AgregadorCarrito">
+        <constructor-arg ref="ClienteRepositorio"/>
+    </bean>
     <!--Depedencias Doctor -->
     <bean id="DoctorRepository" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Infrastructure.Hibernate.HibernateDoctorRepository"/>
     <bean id="CrearDoctor" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.CrearDoctor.CrearDoctor">

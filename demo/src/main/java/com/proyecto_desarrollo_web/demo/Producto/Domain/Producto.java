@@ -35,7 +35,7 @@ public class Producto {
         this.cantidad = new ProductoCantidad(this.cantidad.value() - 1);
     }
 
-    public ProductoPrecio precio(){
+    public ProductoPrecio Precio(){
         return  this.precio;
     }
 

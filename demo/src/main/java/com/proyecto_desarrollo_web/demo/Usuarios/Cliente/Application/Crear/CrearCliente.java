@@ -12,7 +12,7 @@ public class CrearCliente {
         this.repo = repo;
     }
 
-    public void excecute(String id, String nombre, String usuario, String contrasena, Integer numero ){
+    public void execute(String id, String nombre, String usuario, String contrasena, Integer numero ){
         Cliente cliente = Cliente.Create(new ClienteId(id), new ClienteNombre(nombre), new ClienteUsuario(usuario), new ClienteContra(contrasena), new ClienteNumero(numero));
         repo.save(cliente);
     }
