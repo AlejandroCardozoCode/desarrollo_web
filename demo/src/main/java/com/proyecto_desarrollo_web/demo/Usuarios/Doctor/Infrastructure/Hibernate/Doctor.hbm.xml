@@ -31,6 +31,11 @@
         <component name="contrasenna" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.DocContrasenna" access="field">
             <property name="value" column="contrasenna" access="field" type="string"/>
         </component>
+
+        <property name="arregloPacientes" column="pacientes" access="field">
+            <type name="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Infrastructure.Hibernate.ArregloPacientesCT">
+            </type>
+        </property>
         <!--FUNCION PARA LOS ESTUDIOS -->
 
 
