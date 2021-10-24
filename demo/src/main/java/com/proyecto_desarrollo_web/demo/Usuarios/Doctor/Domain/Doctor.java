@@ -1,6 +1,7 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain;
 
 import com.proyecto_desarrollo_web.demo.Shared.Entities.HistoriaClinica;
+import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Entities.PacienteAsignado;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.*;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente;
 
@@ -16,7 +17,7 @@ public class Doctor {
     private DocHorarioFinal horarioFinal;
     private DocUsuario usuario;
     private DocContrasenna contrasenna;
-    private Optional<List<Paciente>> arregloPacientes;
+    private Optional<List<PacienteAsignado>> arregloPacientes;
     private Optional<List<HistoriaClinica>> arregloHistoriasDoc;
 
     private Doctor(){}
@@ -37,7 +38,7 @@ public class Doctor {
         return doctoNuevo;
     }
 
-    public void agregarPacienteListaPacientes(Paciente paciente){
+    public void agregarPacienteListaPacientes(PacienteAsignado paciente){
         this.arregloPacientes.get().add(paciente);
     }
     public void agregarCita(HistoriaClinica cita)
