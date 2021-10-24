@@ -1,9 +1,12 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain;
 
-import com.proyecto_desarrollo_web.demo.Shared.Entities.HistoriaClinica;
+import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Entities.PacienteAsignado;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.*;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente;
+import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Entities.HistoriaClinicaPaciente;
 
+import javax.swing.text.html.Option;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,11 +19,11 @@ public class Doctor {
     private DocHorarioFinal horarioFinal;
     private DocUsuario usuario;
     private DocContrasenna contrasenna;
-    private Optional<List<Paciente>> arregloPacientes;
-    private Optional<List<HistoriaClinica>> arregloHistoriasDoc;
+    private Optional<List<PacienteAsignado>> arregloPacientes;
+    private Optional<List<HistoriaClinicaPaciente>> arregloHistoriasDoc;
 
     private Doctor(){}
-    public Doctor(DocId id,DocNombre nombre, DocCedula cedula, DocHorarioInicial horarioInicial, DocHorarioFinal horarioFinal, DocUsuario usuario, DocContrasenna contra) {
+    public Doctor(DocId id,DocNombre nombre, DocCedula cedula, DocHorarioInicial horarioInicial, DocHorarioFinal horarioFinal, DocUsuario usuario, DocContrasenna contra, Optional<List<PacienteAsignado>> listaPacientes) {
         this.id = id;
         this.nombre = nombre;
         this.cedula = cedula;
@@ -28,21 +31,24 @@ public class Doctor {
         this.horarioFinal = horarioFinal;
         this.usuario = usuario;
         this.contrasenna = contra;
-        this.arregloPacientes = Optional.empty();
+        this.arregloPacientes = listaPacientes;
         this.arregloHistoriasDoc = Optional.empty();
     }
 
     public static Doctor Create(DocId id,DocNombre nombre,DocCedula cedula, DocHorarioInicial horarioInicial, DocHorarioFinal horarioFinal, DocUsuario usuario , DocContrasenna contra){
-        Doctor doctoNuevo = new Doctor(id,nombre,cedula, horarioInicial, horarioFinal,usuario, contra);
+        Doctor doctoNuevo = new Doctor(id,nombre,cedula, horarioInicial, horarioFinal,usuario, contra, Optional.empty());
         return doctoNuevo;
     }
 
-    public void agregarPacienteListaPacientes(Paciente paciente){
-        this.arregloPacientes.get().add(paciente);
-    }
-    public void agregarCita(HistoriaClinica cita)
-    {
-        this.arregloHistoriasDoc.get().add(cita);
+    public void agregarPacienteListaPacientes(PacienteAsignado paciente){
+        if(!this.arregloPacientes.isPresent()){
+            List<PacienteAsignado>nuevalista = new ArrayList();
+            nuevalista.add(paciente);
+            this.arregloPacientes = Optional.of(nuevalista);
+        }
+        else {
+            this.arregloPacientes.get().add(paciente);
+        }
     }
 
     public  void actualizarHoraInicial(DocHorarioInicial horaI){

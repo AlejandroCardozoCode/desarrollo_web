@@ -1,6 +1,7 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.AgregarListaPacientes;
 
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Doctor;
+import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Entities.PacienteAsignado;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Ports.DoctorRepositorio;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Services.ServicioBuscarDoctorDominio;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente;
@@ -24,8 +25,9 @@ public class AgregardorListaPacientes {
 
     public void execute(String id, String idDoc){
         Paciente paciente = servicioBuscarPaciente.execute(id);
+        PacienteAsignado pacienteFinal = paciente.crearPacienteAsignado() ;
         Doctor doctor = servicioBuscarDoctorDominio.excecute(idDoc);
-        doctor.agregarPacienteListaPacientes(paciente);
+        doctor.agregarPacienteListaPacientes(pacienteFinal);
         repoDoc.save(doctor);
 
     }

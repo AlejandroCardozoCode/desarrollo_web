@@ -1,6 +1,7 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain;
 
 import com.proyecto_desarrollo_web.demo.Shared.Entities.HistoriaClinica;
+import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Entities.PacienteAsignado;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Entities.DoctorAsignado;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Entities.HistoriaClinicaPaciente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.ValueObjects.*;
@@ -58,5 +59,10 @@ public class Paciente {
 
     public void agregarDoctorAsignado(Optional<DoctorAsignado> opt) {
         this.doctor = opt;
+    }
+
+    public PacienteAsignado crearPacienteAsignado() {
+        PacienteAsignado nuevo = new PacienteAsignado(this.id.value(),this.animal.value(), this.idCliente.value());
+        return nuevo;
     }
 }

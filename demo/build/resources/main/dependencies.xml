@@ -38,6 +38,9 @@
     <bean id="EliminarDoctor" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.BorrarDoctor.EliminarDoctor">
         <constructor-arg ref="DoctorRepository"/>
     </bean>
+    <bean id="AgregadorListaPacientes" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.AgregarListaPacientes.AgregardorListaPacientes">
+        <constructor-arg ref="DoctorRepository"/>
+    </bean>
     <!--Depedencias Paciente -->
     <bean id="PacienteRepositorio" class="com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Infraestructure.Hibernate.HibernatePacienteRepo"/>
     <bean id="CrearPaciente" class = "com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Application.Crear.CrearPaciente">
