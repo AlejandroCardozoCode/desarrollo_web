@@ -47,10 +47,7 @@ public class ProductoComCustomType implements UserType {
             Optional<String> value = Optional.ofNullable(rs.getString(names[0]));
             if(value.isPresent()){
                 List<HashMap<String, Object>> objects = new ObjectMapper().readValue(value.get(),List.class);
-                response = objects.stream().map(element -> new PacienteCli((String) element.get("idPaciente"),
-                        (String) element.get("animal"),
-                        (String) element.get("raza"),
-                        (Integer) element.get("edad"))).collect(Collectors.toList());
+
 
             }
         }
