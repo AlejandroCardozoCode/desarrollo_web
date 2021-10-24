@@ -32,7 +32,7 @@ public class CustomUUID implements Serializable {
         }
         catch (Exception ex)
         {
-            throw new UUIDNotValid("El UUID no es valido");
+            throw new UUIDNotValid("El UUID " + value +" no es valido");
         }
     }
 

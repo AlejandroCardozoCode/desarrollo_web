@@ -12,31 +12,33 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping(value = "/Doctor")
-public class agregarPaienteArreglo {
+public class AgregarPacienteArreglo {
 
     @Autowired
     private AgregardorListaPacientes agregador;
 
     @PostMapping(value = "/agregar_paciente")
-    public ResponseEntity execute(@RequestBody Request request){
-       this.agregador.execute(request.getIdPaciente(), request.getIdDcotor());
-       return ResponseEntity.status(HttpStatus.OK).body(null);
+    public ResponseEntity execute(@RequestBody Request request) {
+        this.agregador.execute(request.getIdPaciente(), request.getIdDoctor());
+        return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
     @ExceptionHandler(idDoctorNoEncontrado.class)
     @ResponseStatus(code = HttpStatus.CONFLICT)
-    public ResponseEntity <HashMap> handlerDoctorExiste(idDoctorNoEncontrado exception){
-        HashMap<String, String> response = new HashMap<>(){{
+    public ResponseEntity<HashMap> handlerDoctorExiste(idDoctorNoEncontrado exception) {
+        HashMap<String, String> response = new HashMap<>() {{
             put("Error", exception.getMessage());
         }};
         return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
     }
-    static class Request{
+
+    static class Request {
 
         private String idPaciente;
         private String idDoctor;
 
-        public Request(){}
+        public Request() {
+        }
 
         public String getIdPaciente() {
             return idPaciente;
@@ -46,13 +48,13 @@ public class agregarPaienteArreglo {
             this.idPaciente = idPaciente;
         }
 
-        public String getIdDcotor() {
+        public String getIdDoctor() {
             return idDoctor;
         }
 
-        public void setIdDcotor(String idDcotor) {
-            this.idDoctor = idDcotor;
+        public void setIdDoctor(String idDoctor) {
+            this.idDoctor = idDoctor;
         }
     }
-    }
+}
 

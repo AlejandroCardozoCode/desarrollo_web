@@ -13,28 +13,29 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class ArregloPacientesCT implements UserType {
     @Override
     public int[] sqlTypes() {
-        return new int[0];
+        return new int[] {Types.LONGNVARCHAR};
     }
 
     @Override
     public Class returnedClass() {
-        return null;
+        return List.class;
     }
 
     @Override
     public boolean equals(Object x, Object y) throws HibernateException {
-        return false;
+        return Objects.equals(x,y);
     }
 
     @Override
     public int hashCode(Object x) throws HibernateException {
-        return 0;
+        return Objects.hashCode(x);
     }
 
     @Override
@@ -51,7 +52,7 @@ public class ArregloPacientesCT implements UserType {
             }
         }
         catch (Exception e) {
-            throw new HibernateException("Error ar reading map of TruckDriver " + e.toString());
+            throw new HibernateException("Error ar reading map of pacientes " + e.toString());
         }
         return Optional.ofNullable(response);
     }
@@ -71,7 +72,7 @@ public class ArregloPacientesCT implements UserType {
             }
         }
         catch (Exception e) {
-            throw new HibernateException("Error serializing value of TruckDriver " + e.toString());
+            throw new HibernateException("Error serializing value of pacienes " + e.toString());
         }
     }
 

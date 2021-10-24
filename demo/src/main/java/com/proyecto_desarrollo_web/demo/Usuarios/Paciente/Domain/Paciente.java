@@ -62,7 +62,7 @@ public class Paciente {
     }
 
     public PacienteAsignado crearPacienteAsignado() {
-        PacienteAsignado nuevo = new PacienteAsignado(this.id.toString(),this.animal.toString(), this.idCliente.toString());
+        PacienteAsignado nuevo = new PacienteAsignado(this.id.value(),this.animal.value(), this.idCliente.value());
         return nuevo;
     }
 }
