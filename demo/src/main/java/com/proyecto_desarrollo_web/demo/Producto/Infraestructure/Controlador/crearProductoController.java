@@ -23,10 +23,37 @@ public class crearProductoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(null);
     }
 
+    @ExceptionHandler(ElProductoYaExiste.class)
+    @ResponseStatus(code = HttpStatus.CONFLICT)
+    public ResponseEntity<HashMap> handlerProductoYaExiste(ElProductoYaExiste exception){
+        HashMap<String, String> response = new HashMap<>(){{
+            put("Error", exception.getMessage());
+        }};
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
+
     @ExceptionHandler(NombreProductoNoValido.class)
     @ResponseStatus(code = HttpStatus.CONFLICT)
-    public ResponseEntity<HashMap> handlerProductoExiste(NombreProductoNoValido exception){
+    public ResponseEntity<HashMap> handlerNoProductoExiste(NombreProductoNoValido exception){
         HashMap<String, String> response = new HashMap<>(){{
+            put("Error", exception.getMessage());
+        }};
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
+
+    @ExceptionHandler(PrecioNoValido.class)
+    @ResponseStatus(code = HttpStatus.CONFLICT)
+    public ResponseEntity <HashMap> handlerCantidadInvalida(PrecioNoValido exception) {
+        HashMap<String, String> response = new HashMap<>() {{
+            put("Error", exception.getMessage());
+        }};
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+    }
+
+    @ExceptionHandler(CantidadNoValido.class)
+    @ResponseStatus(code = HttpStatus.CONFLICT)
+    public ResponseEntity <HashMap> handlerCantidadInvalida(CantidadNoValido exception) {
+        HashMap<String, String> response = new HashMap<>() {{
             put("Error", exception.getMessage());
         }};
         return ResponseEntity.status(HttpStatus.CONFLICT).body(response);

@@ -40,11 +40,32 @@
     </bean>
     <!--Depedencias Producto -->
 
-    <bean id="ProductoRepository" class="com.proyecto_desarrollo_web.demo.Producto.Infraestructure.Hibernate.HibernateProductoRepo"/>
+    <bean id="ProductoRepositorio" class="com.proyecto_desarrollo_web.demo.Producto.Infraestructure.Hibernate.HibernateProductoRepo"/>
     <bean id="BuscarProducto" class = "com.proyecto_desarrollo_web.demo.Producto.Application.Buscar.BuscarProducto">
-        <constructor-arg ref="ProductoRepository"/>
+        <constructor-arg ref="ProductoRepositorio"/>
     </bean>
     <bean id="CreadorProducto" class = "com.proyecto_desarrollo_web.demo.Producto.Application.CrearProducto.CreadorProducto">
-        <constructor-arg ref="ProductoRepository"/>
+        <constructor-arg ref="ProductoRepositorio"/>
     </bean>
+    <bean id="EliminarProducto" class = "com.proyecto_desarrollo_web.demo.Producto.Application.EliminarProducto.EliminadorProducto">
+        <constructor-arg ref="ProductoRepositorio"/>
+    </bean>
+    <bean id="ActualizarStock" class = "com.proyecto_desarrollo_web.demo.Producto.Application.ActualizarStock.ActualiadorStock">
+        <constructor-arg ref="ProductoRepositorio"/>
+    </bean>
+    <bean id="ActualizarPrecio" class = "com.proyecto_desarrollo_web.demo.Producto.Application.ActualizarPrecio.ActualizadorPrecio">
+        <constructor-arg ref="ProductoRepositorio"/>
+    </bean>
+
+    <!--Depedencias Admin -->
+    <bean id="AdminRepositorio" class="com.proyecto_desarrollo_web.demo.Usuarios.Admin.Infraestructure.Hibernate.HibernateAdminRepo"/>
+
+    <bean id="CrearAdmin" class = "com.proyecto_desarrollo_web.demo.Usuarios.Admin.Application.CrearAdmin.CrearAdmin">
+        <constructor-arg ref="AdminRepositorio"/>
+    </bean>
+    <bean id="EliminarAdmin" class = "com.proyecto_desarrollo_web.demo.Usuarios.Admin.Application.EliminarAdmin.EliminarAdmin">
+        <constructor-arg ref="AdminRepositorio"/>
+    </bean>
+
+
 </beans>

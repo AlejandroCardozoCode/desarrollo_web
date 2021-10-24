@@ -1,7 +1,9 @@
-package com.proyecto_desarrollo_web.demo.Producto.Infraestructure.Controlador;
+package com.proyecto_desarrollo_web.demo.Usuarios.Admin.Infraestructure.Controlador;
 
-import com.proyecto_desarrollo_web.demo.Producto.Domain.Exceptions.*;
-import com.proyecto_desarrollo_web.demo.Producto.Application.EliminarProducto.EliminadorProducto;
+import com.proyecto_desarrollo_web.demo.Producto.Domain.Exceptions.IdProductoNoEncontrado;
+import com.proyecto_desarrollo_web.demo.Producto.Infraestructure.Controlador.eliminarProductoController;
+import com.proyecto_desarrollo_web.demo.Usuarios.Admin.Domain.Exceptions.*;
+import com.proyecto_desarrollo_web.demo.Usuarios.Admin.Application.EliminarAdmin.EliminarAdmin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,12 +12,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping(value = "/Producto")
+@RequestMapping(value = "/Admin")
 
-public class eliminarProductoController {
+public class eliminarAdminController {
 
     @Autowired
-    private EliminadorProducto  eliminador;
+    private EliminarAdmin eliminador;
 
     @PostMapping(value = "/borrar")
 
@@ -25,9 +27,9 @@ public class eliminarProductoController {
 
     }
 
-    @ExceptionHandler(IdProductoNoEncontrado.class)
+    @ExceptionHandler(IdAdminNoEncontrado.class)
     @ResponseStatus(code = HttpStatus.CONFLICT)
-    public ResponseEntity <HashMap> handlerProductoExiste(IdProductoNoEncontrado exception){
+    public ResponseEntity <HashMap> handlerAdminNoExiste(IdAdminNoEncontrado exception){
         HashMap<String, String> response = new HashMap<>(){{
             put("Error", exception.getMessage());
         }};
@@ -48,5 +50,6 @@ public class eliminarProductoController {
         }
 
     }
+
 
 }

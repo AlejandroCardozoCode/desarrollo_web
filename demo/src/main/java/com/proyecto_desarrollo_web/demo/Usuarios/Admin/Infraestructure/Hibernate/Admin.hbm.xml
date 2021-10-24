@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.proyecto_desarrollo_web.demo.Usuarios.Admin.Domain.Admin" table="Admin">
+
+        <composite-id name="id" class="com.proyecto_desarrollo_web.demo.Usuarios.Admin.Domain.ValueObjects.AdminId" access="field">
+            <key-property name="value" column="id" access="field" length="36"/>
+        </composite-id>
+
+        <component name="usuario" class="com.proyecto_desarrollo_web.demo.Usuarios.Admin.Domain.ValueObjects.AdminUsuario" access="field">
+            <property name="value" column="usuario" access="field" type="string"/>
+        </component>
+
+        <component name="contra" class="com.proyecto_desarrollo_web.demo.Usuarios.Admin.Domain.ValueObjects.AdminContra" access="field">
+            <property name="value" column="contrasena" access="field" type="string"/>
+        </component>
+
+    </class>
+</hibernate-mapping>

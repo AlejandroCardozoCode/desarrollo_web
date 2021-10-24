@@ -2,7 +2,7 @@ package com.proyecto_desarrollo_web.demo.Producto.Domain;
 
 import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoCantidad;
 import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoId;
-import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoNobmre;
+import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoNombre;
 import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoPrecio;
 
 import java.util.Objects;
@@ -10,16 +10,18 @@ import java.util.Objects;
 public class Producto {
 
     private ProductoId id;
-    private ProductoNobmre nombre;
+    private ProductoNombre nombre;
     private ProductoPrecio precio;
     private ProductoCantidad cantidad;
 
-    public Producto(ProductoId id, ProductoNobmre nombre, ProductoPrecio precio, ProductoCantidad cantidad) {
+    public Producto(ProductoId id, ProductoNombre nombre, ProductoPrecio precio, ProductoCantidad cantidad) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
         this.cantidad = cantidad;
     }
+
+    private Producto(){};
 
     public void actualizarPrecio(ProductoPrecio precio){
         this.precio = precio;
@@ -37,7 +39,7 @@ public class Producto {
         return  this.precio;
     }
 
-    public static Producto crear(ProductoId id, ProductoNobmre nombre, ProductoPrecio precio, ProductoCantidad cantidad){
+    public static Producto crear(ProductoId id, ProductoNombre nombre, ProductoPrecio precio, ProductoCantidad cantidad){
         Producto producto = new Producto(id, nombre, precio, cantidad);
         return producto;
     }

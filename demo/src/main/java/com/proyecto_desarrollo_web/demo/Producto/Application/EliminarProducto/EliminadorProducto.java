@@ -3,7 +3,6 @@ package com.proyecto_desarrollo_web.demo.Producto.Application.EliminarProducto;
 import com.proyecto_desarrollo_web.demo.Producto.Domain.Ports.ProductoRepositorio;
 import com.proyecto_desarrollo_web.demo.Producto.Domain.Producto;
 import com.proyecto_desarrollo_web.demo.Producto.Domain.Services.ServicioBuscarProducto;
-import com.proyecto_desarrollo_web.demo.Tienda.Domain.Tienda;
 
 public class EliminadorProducto {
 
@@ -16,8 +15,8 @@ public class EliminadorProducto {
         servicioBuscarProducto = new ServicioBuscarProducto(this.repo);
     }
 
-    public void execute(String id, Tienda tienda){
+    public void execute(String id){
         Producto producto = servicioBuscarProducto.execute(id);
-        tienda.removerUnProducto(producto);
+        repo.delete(producto);
     }
 }

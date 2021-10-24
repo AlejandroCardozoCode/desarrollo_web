@@ -6,11 +6,11 @@ import com.proyecto_desarrollo_web.demo.Shared.Domain.Aggregate.StringValueObjec
 
 import java.util.regex.Pattern;
 
-public class ProductoNobmre extends StringValueObject {
+public class ProductoNombre extends StringValueObject {
 
-    private ProductoNobmre(){}
+    private ProductoNombre(){}
 
-    public ProductoNobmre(String nombre){
+    public ProductoNombre(String nombre){
         validarCaracteres(nombre);
         validar(nombre);
         this.value = nombre;

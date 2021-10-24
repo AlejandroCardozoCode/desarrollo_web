@@ -1,7 +1,8 @@
 package com.proyecto_desarrollo_web.demo.Shared.Infraestructure.Hibernate;
 
-import com.proyecto_desarrollo_web.demo.Shared.Domain.Aggregate.CustomUUID;
+
 import org.hibernate.SessionFactory;
+import com.proyecto_desarrollo_web.demo.Shared.Domain.Aggregate.CustomUUID;
 
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;

@@ -22,6 +22,11 @@ public class HibernateProductoRepo extends HibernateRepository<Producto> impleme
     }
 
     @Override
+    public void delete(Producto actual) {
+        deleteEntity(actual);
+    }
+
+    @Override
     public Optional<Producto> find(ProductoId id) {
         return byId(id);
     }

@@ -10,25 +10,17 @@ public class AdminContra extends StringValueObject {
 
     private AdminContra(){}
 
-    public AdminContra(String nombre)
+    public AdminContra(String contra)
     {
-        validar(nombre);
-        validarCaracteres(nombre);
-        this.value = nombre;
+        validar(contra);
+        this.value = contra;
     }
 
-    private void validarCaracteres(String nombre) {
-        Pattern p = Pattern.compile("^[a-zA-Z]*$");
-        if (!p.matcher(nombre).find()) {
-            throw new NombreAdminCaracteresNoValidos("El nombre contiene caracteres no validos");
 
-        }
-    }
-
-    private void validar(String nombre) {
-        if(nombre.isEmpty() || nombre.equals(""))
+    private void validar(String contra) {
+        if(contra.isEmpty() || contra.equals(""))
         {
-            throw new NombreAdminNoValido("No se ha ingresado un valor en el nombre");
+            throw new NombreAdminNoValido("No se ha ingresado un valor en la contrasena");
         }
     }
 }
