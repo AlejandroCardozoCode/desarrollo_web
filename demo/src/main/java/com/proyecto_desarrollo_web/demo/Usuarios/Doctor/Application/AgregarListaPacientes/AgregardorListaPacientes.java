@@ -18,9 +18,10 @@ public class AgregardorListaPacientes {
     private ServicioBuscarPaciente servicioBuscarPaciente;
 
     private ServicioBuscarDoctorDominio servicioBuscarDoctorDominio;
-    public AgregardorListaPacientes(PacienteRepositorio repo, DoctorRepositorio repoDoc){
+    public AgregardorListaPacientes(PacienteRepositorio repo, DoctorRepositorio repoDoc, EventBus eventBus){
         this.repo = repo;
         this.repoDoc = repoDoc;
+        this.eventBus=eventBus;
         servicioBuscarPaciente = new ServicioBuscarPaciente(this.repo);
         servicioBuscarDoctorDominio = new ServicioBuscarDoctorDominio(this.repoDoc);
     }
