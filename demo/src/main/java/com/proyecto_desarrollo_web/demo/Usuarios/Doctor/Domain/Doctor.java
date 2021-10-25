@@ -4,6 +4,7 @@ import com.proyecto_desarrollo_web.demo.Shared.Domain.Aggregate.AggregateRoot;
 import com.proyecto_desarrollo_web.demo.Shared.Domain.DomainEvents.UpdateHoraLlegada;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Entities.PacienteAsignado;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.*;
+import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Entities.DoctorAsignado;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Entities.HistoriaClinicaPaciente;
 
@@ -51,6 +52,11 @@ public class Doctor extends AggregateRoot {
         else {
             this.arregloPacientes.get().add(paciente);
         }
+    }
+
+    public DoctorAsignado crearDoctorAsignado(){
+       DoctorAsignado  nuevo = new DoctorAsignado(this.id.value(),this.nombre.value());
+       return nuevo;
     }
 
     public  void actualizarHoraInicial(DocHorarioInicial horaI){

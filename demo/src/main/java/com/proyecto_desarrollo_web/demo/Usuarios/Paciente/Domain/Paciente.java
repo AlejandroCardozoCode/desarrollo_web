@@ -7,6 +7,7 @@ import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Entities.Doctor
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Entities.HistoriaClinicaPaciente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.ValueObjects.*;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -42,6 +43,22 @@ public class Paciente extends AggregateRoot {
 
     public void agregarHistoriClinica(Optional<HistoriaClinicaPaciente>historiaClinica) {
         this.historiaClinicaPaciente = historiaClinica;
+    }
+
+    public HashMap<String, String> respuestaFind(){
+        String id = this.id.value();
+        String nombre = this.nombre.value();
+        String idCliente = this.idCliente.value();
+        String raza = this.raza.value();
+        String animal = this.animal.value();
+        HashMap<String, String> paciente = new HashMap<>(){{
+            put("idCliente:", idCliente);
+            put("raza:", raza);
+            put("animal:", animal);
+            put("nombre:", nombre);
+            put("id:", id );
+        }};
+        return  paciente;
     }
 
     @Override

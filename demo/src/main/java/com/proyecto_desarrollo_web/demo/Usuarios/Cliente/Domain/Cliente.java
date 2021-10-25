@@ -20,6 +20,7 @@ public class Cliente {
     private Optional<ProductoCom> productosComprados;
     private Optional<ProductoCom> productosSinComprar;
 
+    private Cliente(){}
     public Cliente(ClienteId id, ClienteNombre nombre, ClienteUsuario usuario, ClienteContra contrasena, ClienteNumero numero) {
         this.id = id;
         this.nombre = nombre;

@@ -18,9 +18,9 @@ public class ClienteNombre extends StringValueObject {
        this.value = nombre;
     }
     private void validarCaracteres(String nombre) {
-        Pattern p = Pattern.compile("^[a-zA-Z]*$");
+        Pattern p = Pattern.compile("^[\\p{L} .'-]+$");
         if (!p.matcher(nombre).find()) {
-            throw new NombreClienteNoVaido("el nombre contiene caracteres no validos");
+            throw new NombreClienteNoVaido("El nombre contiene caracteres no validos");
 
         }
     }

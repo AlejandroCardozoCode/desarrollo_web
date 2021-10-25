@@ -16,7 +16,7 @@ public class PacienteRaza extends StringValueObject {
     }
 
     private void validarCaracteres(String raza) {
-        Pattern p = Pattern.compile("^[a-zA-Z]*$");
+        Pattern p = Pattern.compile("^[\\p{L} .'-]+$");
         if (!p.matcher(raza).find()) {
             throw new RazaCaracteresNoValidos("el raza contiene caracteres no validos");
         }
