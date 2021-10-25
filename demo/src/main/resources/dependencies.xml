@@ -31,9 +31,7 @@
     <bean id="ActualizadorHoraFinalDoctor" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.ActualizarHoraFinal.ActualizarHoraFianlDoctor">
         <constructor-arg ref="DoctorRepository"/>
     </bean>
-    <bean id="AgregardorListaPacientes" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.AgregarListaPacientes.AgregardorListaPacientes">
-        <constructor-arg ref="DoctorRepository"/>
-    </bean>
+
 
     <bean id="CambiarContra" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.CambiarContra.CambiarContra">
         <constructor-arg ref="DoctorRepository"/>
