@@ -24,10 +24,11 @@ public class AgregadorCarrito {
        servicioBuscarProducto = new ServicioBuscarProducto(this.repoProducto);
    }
 
-   public  void execute(String id, String idProducto, String nombre, Integer precio, Integer cantidad){
+   public  void execute(String id, String idProducto){
        Cliente cliente = servicioBuscarCliente.excecute(id);
-       ProductoCom producto = new ProductoCom(idProducto,nombre,precio,cantidad);
-       Optional<ProductoCom> opt = Optional.of(producto);
-       cliente.agregarCarrito(opt);
+       Producto producto = servicioBuscarProducto.execute(idProducto);
+       ProductoCom producto2 = producto.crearProductoCom();
+       cliente.agregarCarritoFinal(producto2);
+       repo.save(cliente);
    }
 }

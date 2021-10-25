@@ -19,6 +19,9 @@
     <bean id="AgregadorCarrito" class = "com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Application.AgregarProductoCarrito.AgregadorCarrito">
         <constructor-arg ref="ClienteRepositorio"/>
     </bean>
+    <bean id="AgregadorPaciente" class = "com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Application.AgregarPaciente.AgregadorPaciente">
+        <constructor-arg ref="ClienteRepositorio"/>
+    </bean>
     <!--Depedencias Doctor -->
     <bean id="DoctorRepository" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Infrastructure.Hibernate.HibernateDoctorRepository"/>
 

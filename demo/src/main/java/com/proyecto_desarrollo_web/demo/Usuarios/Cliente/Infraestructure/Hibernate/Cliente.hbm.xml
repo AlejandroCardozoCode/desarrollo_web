@@ -36,10 +36,6 @@
             </type>
         </property>
 
-        <property name="productosSinComprar" column="productosSinComprar" access="field">
-            <type name="com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Infraestructure.Hibernate.ProductoComCustomType">
-            </type>
-        </property>
 
 
     </class>

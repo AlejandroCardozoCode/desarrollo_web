@@ -1,9 +1,10 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Infraestructure.Controllers;
 
 import com.proyecto_desarrollo_web.demo.Producto.Domain.Exceptions.IdProductoNoEncontrado;
-import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Application.AgregarProductoCarrito.AgregadorCarrito;
+import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Application.AgregarPaciente.AgregadorPaciente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Exceptions.CarritoComprasVacio;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Exceptions.ClienteNoEncontrado;
+import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Exceptions.idPacienteNoEncontrado;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,26 +14,25 @@ import java.util.HashMap;
 
 @RestController
 @RequestMapping(value = "/Cliente")
-public class AddProductController {
+public class AgregarPacienteAListaCliente {
 
     @Autowired
-    private AgregadorCarrito agregador;
+    private AgregadorPaciente agregador;
 
-    @PostMapping(value = "/agregarCarrito")
-    public ResponseEntity execute(@RequestBody AgregarCarritoRequest request)
-    {
-        this.agregador.execute(request.getIdCliente(),request.getIdProducto());
+    @PostMapping(value = "/agregar_paciente")
+    public ResponseEntity execute(@RequestBody Request request){
+        this.agregador.execute(request.getIdCliente(), request.getIdPaciente());
         return ResponseEntity.status(HttpStatus.OK).body(null);
-
     }
-    @ExceptionHandler(CarritoComprasVacio.class)
+
+    @ExceptionHandler(idPacienteNoEncontrado.class)
     @ResponseStatus(code = HttpStatus.CONFLICT)
-    public ResponseEntity<HashMap> handlerClientNotFound(ClienteNoEncontrado exception)
+    public ResponseEntity<HashMap> handlerClientNotFound(idPacienteNoEncontrado exception)
     {
         HashMap<String,String> response = new HashMap<>(){{
             put("error", exception.getMessage());
         }};
-       return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
     }
     @ExceptionHandler({ClienteNoEncontrado.class, IdProductoNoEncontrado.class})
     @ResponseStatus(code = HttpStatus.CONFLICT)
@@ -43,12 +43,10 @@ public class AddProductController {
         }};
         return ResponseEntity.status(HttpStatus.CONFLICT).body(response);
     }
-    static class AgregarCarritoRequest{
+    static class Request{
         private String idCliente;
-        private String idProducto;
-
-
-        public AgregarCarritoRequest()
+        private String idPaciente;
+        public Request()
         {
         }
 
@@ -60,12 +58,12 @@ public class AddProductController {
             this.idCliente = idCliente;
         }
 
-        public String getIdProducto() {
-            return idProducto;
+        public String getIdPaciente() {
+            return idPaciente;
         }
 
-        public void setIdProducto(String idProducto) {
-            this.idProducto = idProducto;
+        public void setIdPaciente(String idPaciente) {
+            this.idPaciente = idPaciente;
         }
     }
 }

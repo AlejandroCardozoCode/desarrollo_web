@@ -2,6 +2,7 @@ package com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain;
 
 import com.proyecto_desarrollo_web.demo.Shared.Domain.Aggregate.AggregateRoot;
 import com.proyecto_desarrollo_web.demo.Shared.Entities.HistoriaClinica;
+import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Entities.PacienteCli;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Entities.PacienteAsignado;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Entities.DoctorAsignado;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Entities.HistoriaClinicaPaciente;
@@ -43,6 +44,10 @@ public class Paciente extends AggregateRoot {
 
     public void agregarHistoriClinica(Optional<HistoriaClinicaPaciente>historiaClinica) {
         this.historiaClinicaPaciente = historiaClinica;
+    }
+
+    public PacienteCli crearPacienteCliente(){
+        return new PacienteCli(this.id.value(),this.animal.value(),this.raza.value(),this.edad.value());
     }
 
     public HashMap<String, String> respuestaFind(){

@@ -4,6 +4,7 @@ import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoCan
 import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoId;
 import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoNombre;
 import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoPrecio;
+import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Entities.ProductoCom;
 import org.apache.coyote.http11.filters.SavedRequestInputFilter;
 
 import java.util.HashMap;
@@ -39,6 +40,9 @@ public class Producto {
 
     public ProductoPrecio Precio(){
         return  this.precio;
+    }
+    public ProductoCom crearProductoCom(){
+        return new ProductoCom(this.id.value(),this.nombre.value(),this.precio.value(),this.cantidad.value());
     }
 
     public static Producto crear(ProductoId id, ProductoNombre nombre, ProductoPrecio precio, ProductoCantidad cantidad){

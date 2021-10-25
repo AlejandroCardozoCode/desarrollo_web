@@ -53,7 +53,7 @@ public class ProductoComCustomType implements UserType {
             }
         }
         catch (Exception e){
-            throw new HibernateException("Error at reading map of Paciente Cliente"+ e.toString());
+            throw new HibernateException("Error at reading map of Producto com"+ e.toString());
         }
         return Optional.ofNullable(response);
     }

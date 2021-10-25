@@ -22,12 +22,6 @@ public class PagadorCarrito {
     }
 
     public void execute(String id) {
-        Cliente cliente = servicioBuscarCliente.excecute(id);
-        Optional<ProductoCom> productosEnCarrito = cliente.verProductosCarrito();
-        if (productosEnCarrito.isEmpty()) {
-            throw new CarritoComprasVacio("El carrito de compras esta vacio");
-        }
-        Integer costoTotal = cliente.precioCarrito();
-            cliente.agregarCarritoFinal(productosEnCarrito);
+
     }
 }

@@ -6,22 +6,29 @@ import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Cliente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Ports.ClienteRepo;
 import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Services.ServicioBuscarCliente;
+import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Ports.PacienteRepositorio;
+import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Services.ServicioBuscarPaciente;
 
 import java.util.Optional;
 
 public class AgregadorPaciente {
 
     private ClienteRepo repo;
+    private PacienteRepositorio repopa;
     private ServicioBuscarCliente servicioBuscarCliente;
+    private ServicioBuscarPaciente servicioBuscarPaciente;
 
-    public AgregadorPaciente(ClienteRepo repo){
+    public AgregadorPaciente(ClienteRepo repo, PacienteRepositorio repopa){
         this.repo = repo;
+        this.repopa = repopa;
         servicioBuscarCliente = new ServicioBuscarCliente(this.repo);
+        servicioBuscarPaciente = new ServicioBuscarPaciente(this.repopa);
     }
-    public void execute(String clienteId, String idPaciente,String animal,String raza, Integer edad){
+    public void execute(String clienteId, String idPaciente){
         Cliente cliente = servicioBuscarCliente.excecute(clienteId);
-        PacienteCli paciente = new PacienteCli(idPaciente,animal,raza,edad);
-        Optional<PacienteCli> opt = Optional.of(paciente);
-        cliente.agregarMascota(opt);
+        Paciente paciente = servicioBuscarPaciente.execute(idPaciente);
+        PacienteCli paciente2 = paciente.crearPacienteCliente();
+        cliente.agregarMascota(paciente2);
+        repo.save(cliente);
     }
 }
