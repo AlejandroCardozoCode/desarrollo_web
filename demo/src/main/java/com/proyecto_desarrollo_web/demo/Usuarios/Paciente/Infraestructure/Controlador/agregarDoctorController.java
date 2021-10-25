@@ -18,7 +18,7 @@ public class agregarDoctorController {
     private AgregadorDoctorAsignado agregador;
     @PostMapping(value = "/agregar_doctor_asignado")
     public ResponseEntity execute(@RequestBody Request request){
-        this.agregador.execute(request.getIdPaciente(), request.getIdDoctor(), request.getNombre());
+        this.agregador.execute(request.getIdPaciente(), request.getIdDoctor());
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
@@ -42,7 +42,6 @@ public class agregarDoctorController {
 
         private String idPaciente;
         private String idDoctor;
-        private String nombre;
 
         public Request(){}
 
@@ -62,13 +61,6 @@ public class agregarDoctorController {
             this.idDoctor = idDoctor;
         }
 
-        public String getNombre() {
-            return nombre;
-        }
-
-        public void setNombre(String nombre) {
-            this.nombre = nombre;
-        }
     }
 
 }

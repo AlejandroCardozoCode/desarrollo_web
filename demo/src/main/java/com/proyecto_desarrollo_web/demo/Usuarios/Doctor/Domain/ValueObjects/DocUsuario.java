@@ -1,8 +1,5 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects;
 
-import com.proyecto_desarrollo_web.demo.Usuarios.Cliente.Domain.Exceptions.UsuarioClienteNoValido;
-import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Exceptions.EstudiosCaracteresNoValidos;
-import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Exceptions.EstudiosTamNoValido;
 import com.proyecto_desarrollo_web.demo.Shared.Domain.Aggregate.StringValueObject;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Exceptions.UsuarioDocNoValido;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Exceptions.UsuarioDocVacio;

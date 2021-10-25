@@ -1,5 +1,6 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Application.AgregarDoctorAsignado;
 
+import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.AgregarListaPacientes.AgregardorListaPacientes;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Doctor;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Ports.DoctorRepositorio;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Services.ServicioBuscarDoctorDominio;
@@ -24,11 +25,11 @@ public class AgregadorDoctorAsignado {
         servicioBuscarDoctorDominio = new ServicioBuscarDoctorDominio((this.repoDoc));
     }
 
-    public void execute(String idPaciente, String idDoctorAsignado, String nombreDoc )
+    public void execute(String idPaciente, String idDoctorAsignado)
     {
         Paciente paciente = servicioBuscarPaciente.execute(idPaciente);
         Doctor docPrincipal = servicioBuscarDoctorDominio.excecute(idDoctorAsignado);
-        DoctorAsignado doc = new DoctorAsignado(idDoctorAsignado,nombreDoc);
+        DoctorAsignado doc = docPrincipal.crearDoctorAsignado();
         Optional<DoctorAsignado> opt = Optional.of(doc);
         paciente.agregarDoctorAsignado(opt);
         repoPaciente.save(paciente);

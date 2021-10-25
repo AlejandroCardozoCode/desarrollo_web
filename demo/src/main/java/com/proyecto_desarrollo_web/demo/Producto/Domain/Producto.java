@@ -4,7 +4,9 @@ import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoCan
 import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoId;
 import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoNombre;
 import com.proyecto_desarrollo_web.demo.Producto.Domain.ValueObjects.ProductoPrecio;
+import org.apache.coyote.http11.filters.SavedRequestInputFilter;
 
+import java.util.HashMap;
 import java.util.Objects;
 
 public class Producto {
@@ -55,5 +57,15 @@ public class Producto {
     @Override
     public int hashCode() {
         return Objects.hash(id, nombre, precio);
+    }
+
+    public HashMap<String, String> crearRespuestaBusqueda() {
+        String nombre = this.nombre.value();
+        String precio = this.precio.value().toString();
+        HashMap<String, String > nuevo = new HashMap<>(){{
+            put("Nombre:", nombre);
+            put("Precio:", precio);
+        }};
+        return  nuevo;
     }
 }

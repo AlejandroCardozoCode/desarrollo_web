@@ -3,6 +3,7 @@ package com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Infraestructure.Contr
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Application.Encontrar.EncontrarPaciente;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Exceptions.ElPacienteYaExiste;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Exceptions.idPacienteNoEncontrado;
+import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Paciente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,10 +18,11 @@ public class encontrarPacienteController {
     @Autowired
     private EncontrarPaciente encontrar;
 
-    @PostMapping(value = "/buscar")
+    @GetMapping(value = "/buscar")
     public ResponseEntity excecute(@RequestBody BusquedaRequest request){
-       this.encontrar.buscar(request.getId());
-       return ResponseEntity.status(HttpStatus.FOUND).body(null);
+        Paciente paciente = this.encontrar.buscar(request.getId());
+        HashMap<String, String> response = paciente.respuestaFind();
+        return ResponseEntity.status(HttpStatus.FOUND).body(response);
     }
 
     @ExceptionHandler(idPacienteNoEncontrado.class)

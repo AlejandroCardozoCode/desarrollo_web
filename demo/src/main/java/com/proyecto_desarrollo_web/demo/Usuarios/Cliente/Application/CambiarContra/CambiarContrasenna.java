@@ -18,5 +18,6 @@ public class CambiarContrasenna {
     public void execute(String id, String nuevaContra){
         Cliente cliente = servicioBuscarCliente.excecute(id);
         cliente.actualizarContraseña(new ClienteContra(nuevaContra));
+        repo.save(cliente);
     }
 }

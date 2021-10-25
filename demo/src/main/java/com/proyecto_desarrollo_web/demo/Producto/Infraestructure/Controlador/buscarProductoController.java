@@ -2,6 +2,7 @@ package com.proyecto_desarrollo_web.demo.Producto.Infraestructure.Controlador;
 
 import com.proyecto_desarrollo_web.demo.Producto.Application.Buscar.BuscarProducto;
 import com.proyecto_desarrollo_web.demo.Producto.Domain.Exceptions.*;
+import com.proyecto_desarrollo_web.demo.Producto.Domain.Producto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,10 +20,11 @@ public class buscarProductoController {
     private BuscarProducto buscar;
 
 
-    @PostMapping(value = "/busqueda")
+    @GetMapping(value = "/busqueda")
     public ResponseEntity excecute(@RequestBody BusquedaRequest request){
-        this.buscar.execute(request.getId());
-        return ResponseEntity.status(HttpStatus.FOUND).body(null);
+        Producto producto = this.buscar.execute(request.getId());
+        HashMap<String, String> response = producto.crearRespuestaBusqueda();
+        return ResponseEntity.status(HttpStatus.FOUND).body(response);
     }
 
     @ExceptionHandler(IdProductoNoEncontrado.class)
