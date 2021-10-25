@@ -1,5 +1,7 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain;
 
+import com.proyecto_desarrollo_web.demo.Shared.Domain.Aggregate.AggregateRoot;
+import com.proyecto_desarrollo_web.demo.Shared.Domain.DomainEvents.UpdateHoraLlegada;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Entities.PacienteAsignado;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.ValueObjects.*;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Entities.DoctorAsignado;
@@ -12,7 +14,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-public class Doctor {
+public class Doctor extends AggregateRoot {
     private DocId id;
     private DocNombre nombre;
     private DocCedula cedula;
@@ -59,6 +61,7 @@ public class Doctor {
 
     public  void actualizarHoraInicial(DocHorarioInicial horaI){
         this.horarioInicial = horaI;
+        this.record(new UpdateHoraLlegada(this.id.value(),horarioInicial));
     }
     public  void actualizarHoraFinal(DocHorarioFinal horaF){
         this.horarioFinal = horaF;

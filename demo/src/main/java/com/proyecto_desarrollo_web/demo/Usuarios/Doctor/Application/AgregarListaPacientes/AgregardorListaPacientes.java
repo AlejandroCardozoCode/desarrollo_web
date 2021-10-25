@@ -1,5 +1,6 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.AgregarListaPacientes;
 
+import com.proyecto_desarrollo_web.demo.Shared.Domain.Bus.Event.EventBus;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Doctor;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Entities.PacienteAsignado;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Ports.DoctorRepositorio;
@@ -12,13 +13,15 @@ public class AgregardorListaPacientes {
 
     private PacienteRepositorio repo;
     private DoctorRepositorio repoDoc;
+    private EventBus eventBus;
 
     private ServicioBuscarPaciente servicioBuscarPaciente;
 
     private ServicioBuscarDoctorDominio servicioBuscarDoctorDominio;
-    public AgregardorListaPacientes(PacienteRepositorio repo, DoctorRepositorio repoDoc){
+    public AgregardorListaPacientes(PacienteRepositorio repo, DoctorRepositorio repoDoc, EventBus eventBus){
         this.repo = repo;
         this.repoDoc = repoDoc;
+        this.eventBus=eventBus;
         servicioBuscarPaciente = new ServicioBuscarPaciente(this.repo);
         servicioBuscarDoctorDominio = new ServicioBuscarDoctorDominio(this.repoDoc);
     }
@@ -29,6 +32,7 @@ public class AgregardorListaPacientes {
         Doctor doctor = servicioBuscarDoctorDominio.excecute(idDoc);
         doctor.agregarPacienteListaPacientes(pacienteFinal);
         repoDoc.save(doctor);
+        this.eventBus.publish(paciente.pullDomainEvents());
 
     }
 }
