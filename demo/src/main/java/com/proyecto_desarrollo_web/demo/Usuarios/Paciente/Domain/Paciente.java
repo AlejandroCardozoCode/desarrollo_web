@@ -1,5 +1,6 @@
 package com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain;
 
+import com.proyecto_desarrollo_web.demo.Shared.Domain.Aggregate.AggregateRoot;
 import com.proyecto_desarrollo_web.demo.Shared.Entities.HistoriaClinica;
 import com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Domain.Entities.PacienteAsignado;
 import com.proyecto_desarrollo_web.demo.Usuarios.Paciente.Domain.Entities.DoctorAsignado;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-public class Paciente {
+public class Paciente extends AggregateRoot {
     private PacienteId id;
     private PacienteNombre nombre;
     private PacienteAnimal animal;

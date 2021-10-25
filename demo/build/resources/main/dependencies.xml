@@ -19,6 +19,7 @@
     </bean>
     <!--Depedencias Doctor -->
     <bean id="DoctorRepository" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Infrastructure.Hibernate.HibernateDoctorRepository"/>
+    <bean id="SpringApplicationEventBus" class="com.proyecto_desarrollo_web.demo.Shared.Domain.Bus.Event.Spring.SpringApplicationEventBus"/>
     <bean id="CrearDoctor" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.CrearDoctor.CrearDoctor">
         <constructor-arg ref="DoctorRepository"/>
     </bean>
@@ -28,6 +29,9 @@
     </bean>
 
     <bean id="ActualizadorHoraFinalDoctor" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.ActualizarHoraFinal.ActualizarHoraFianlDoctor">
+        <constructor-arg ref="DoctorRepository"/>
+    </bean>
+    <bean id="AgregardorListaPacientes" class="com.proyecto_desarrollo_web.demo.Usuarios.Doctor.Application.AgregarListaPacientes.AgregardorListaPacientes">
         <constructor-arg ref="DoctorRepository"/>
     </bean>
 
