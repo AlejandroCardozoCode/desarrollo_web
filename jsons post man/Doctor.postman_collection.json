@@ -1,0 +1,212 @@
+{
+	"info": {
+		"_postman_id": "9e4e17df-8b78-4ddd-85ca-8742e66acf62",
+		"name": "Doctor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "crear doctor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"13d3a49d-5144-4be3-aae4-539dd9eb0066\",\r\n    \"nombre\":\"Diego Cardozo\",\r\n    \"cedula\":1121334,\r\n    \"horaInicial\":5,\r\n    \"horaFinal\":18,\r\n    \"usuario\":\"diegoC\",\r\n    \"contrasenna\":\"QXd3#H4x!Bg7#P\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Doctor/crear",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Doctor",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cambiar contaseña doc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"13d3a49d-5144-4be3-aae4-539dd9eb0066\",\r\n    \"nuevaContra\" : \"contraDoc2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Doctor/contra",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Doctor",
+						"contra"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizarHoraInicialDoctor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"13d3a49d-5144-4be3-aae4-539dd9eb0066\",\r\n    \"horaInicial\" : 12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Doctor/ActualizarHI",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Doctor",
+						"ActualizarHI"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actualizar hora final doctor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"13d3a49d-5144-4be3-aae4-539dd9eb0066\",\r\n    \"horaFinal\" : 20\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Doctor/ActualizarHF",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Doctor",
+						"ActualizarHF"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar doctor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"13d3a49d-5144-4be3-aae4-539dd9eb0066\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Doctor/borrar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Doctor",
+						"borrar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agregar paciente a lista pacientes doctor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idPaciente\":\"0211cbee-380b-4b2d-bb3e-bc6e3ee696c4\",\r\n    \"idDoctor\": \"13d3a49d-5144-4be3-aae4-539dd9eb0066\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Doctor/agregar_paciente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Doctor",
+						"agregar_paciente"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agregar paciente a lista pacientes doctor 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idPaciente\":\"966fbc76-ee2d-4a78-a76b-e7a616a9ede3\",\r\n    \"idDoctor\": \"13d3a49d-5144-4be3-aae4-539dd9eb0066\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Doctor/agregar_paciente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Doctor",
+						"agregar_paciente"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

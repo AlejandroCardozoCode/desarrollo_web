@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "05f8a17d-3bf7-42b0-a217-2d6b4df00bbf",
+		"name": "Cliente",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "cambiar contraseña",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"4c2c0c79-cd80-48c6-bd13-a91c43020f4d\",\r\n    \"nuevaContra\":\"contrasena2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Cliente/changePas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Cliente",
+						"changePas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear cliente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"id\":\"4c2c0c79-cd80-48c6-bd13-a91c43020f4d\",\r\n\"nombre\":\"David Antolinez\",\r\n\"usuario\":\"david123\",\r\n\"contrasena\":\"QdxVrr5@J5**p6\",\r\n\"numero\":3194390\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Cliente/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Cliente",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agregar producto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCliente\":\"4c2c0c79-cd80-48c6-bd13-a91c43020f4d\",\r\n    \"idProducto\":\"50bbb5a4-dee3-40b1-90c3-089418096f41\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Cliente/agregarCarrito",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Cliente",
+						"agregarCarrito"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agregar Paciente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCliente\":\"4c2c0c79-cd80-48c6-bd13-a91c43020f4d\",\r\n    \"idPaciente\":\"0211cbee-380b-4b2d-bb3e-bc6e3ee696c4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Cliente/agregar_paciente",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Cliente",
+						"agregar_paciente"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

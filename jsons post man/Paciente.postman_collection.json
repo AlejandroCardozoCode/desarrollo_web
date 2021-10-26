@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "0c983f9b-a7e5-4a04-b80d-b022c956c3ca",
+		"name": "Paciente",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "crear paciente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"966fbc76-ee2d-4a78-a76b-e7a616a9ede3\",\r\n    \"nombre\":\"Martin\",\r\n    \"animal\":\"Gato\",\r\n    \"idCliente\":\"4c2c0c79-cd80-48c6-bd13-a91c43020f4d\",\r\n    \"edad\":8,\r\n    \"raza\":\"Americano\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Paciente/crear",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Paciente",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "crear paciente 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"0211cbee-380b-4b2d-bb3e-bc6e3ee696c4\",\r\n    \"nombre\":\"Max\",\r\n    \"animal\":\"Perro\",\r\n    \"idCliente\":\"4c2c0c79-cd80-48c6-bd13-a91c43020f4d\",\r\n    \"edad\":5,\r\n    \"raza\":\"Pit Bull\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Paciente/crear",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Paciente",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "buscar paciente",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"0211cbee-380b-4b2d-bb3e-bc6e3ee696c4\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Paciente/buscar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Paciente",
+						"buscar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agregar historia medica",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idPaciente\":\"0211cbee-380b-4b2d-bb3e-bc6e3ee696c4\",\r\n    \"valoracion\": \"Infeccion en ojos\",\r\n    \"medicamentos\": \"pastillas\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Paciente/agregar_historia_medica",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Paciente",
+						"agregar_historia_medica"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "agregar doctor asignado paciente",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idPaciente\":\"966fbc76-ee2d-4a78-a76b-e7a616a9ede3\",\r\n    \"idDoctor\": \"13d3a49d-5144-4be3-aae4-539dd9eb0066\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Paciente/agregar_doctor_asignado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Paciente",
+						"agregar_doctor_asignado"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

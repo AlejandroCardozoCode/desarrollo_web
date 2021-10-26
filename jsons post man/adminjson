@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "a51c9c7e-2f93-4a1f-927a-bf14ec766742",
+		"name": "Admin",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "CrearAdmin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"4fa0ce50-6a6c-427a-98de-a40f32506439\",\r\n    \"usuario\":\"EstivGil\",\r\n    \"contra\":\"hgwX2647\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Admin/crear",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Admin",
+						"crear"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EliminarAdmin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"4fa0ce50-6a6c-427a-98de-a40f32506439\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Admin/borrar",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Admin",
+						"borrar"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
