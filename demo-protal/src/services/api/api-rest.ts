@@ -5,8 +5,11 @@ export async function sendRequest(
 ): Promise<Response> {
   const config = {
     method: verb,
-    header: {
+    headers: {
       "Content-Type": "aplication/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "*",
+      "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
     },
 
     body: body,
@@ -17,6 +20,7 @@ export async function sendRequest(
   if (!response.ok) {
     const error = await response.json();
     throw new Error(error.error);
+    console.log("El error es: " + error.error);
   }
 
   return response;

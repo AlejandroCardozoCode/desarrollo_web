@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper_principal">
-    <div class="barra_lateral"></div>
+    <Barra_lateral></Barra_lateral>
     <div class="pantalla">
       <h1>Crear Doctor</h1>
       <div>
@@ -67,8 +67,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import { vm } from "@/viewModels/Doctor/crear_doctor_vm";
+import Barra_lateral from "@/components/barra_lateral.vue";
 export default defineComponent({
   name: "CrearDoctor",
+  components: { Barra_lateral },
   setup() {
     const { doctor_a_crear, crear } = vm();
     return { doctor_a_crear, crear };

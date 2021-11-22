@@ -15,6 +15,7 @@ export function vm() {
 
   async function crear() {
     await crear_doctor.crear(doctor_a_crear.value);
+    alert(doctor_a_crear.value.nombre);
   }
 
   return {
