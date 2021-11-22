@@ -1,17 +1,19 @@
 <template>
   <router-view />
 </template>
+
 <script lang="ts">
-import { defineComponent, onErrorCaptured } from "@vue/runtime-core";
+import { defineComponent, onErrorCaptured } from "vue";
+
 export default defineComponent({
   setup() {
     onErrorCaptured((err, instance, details) => {
       console.log(err);
+      alert(err.toString());
     });
   },
 });
 </script>
-
 <style lang="scss">
 * {
   margin: 0;
