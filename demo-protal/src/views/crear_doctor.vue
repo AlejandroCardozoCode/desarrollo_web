@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper_principal">
-    <div class="barra_lateral">aljflaj</div>
+    <div class="barra_lateral"></div>
     <div class="pantalla">
       <h1>Crear Doctor</h1>
       <div>

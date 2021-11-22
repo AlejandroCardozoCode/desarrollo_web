@@ -1,7 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import Home from "../views/Home.vue";
 import CrearDoctor from "../views/crear_doctor.vue";
 import login from "@/views/login.vue";
+import AgregarHC from "@/views/AgregarHC.vue";
+
 
 
 const routes: Array<RouteRecordRaw> = [
@@ -10,14 +11,14 @@ const routes: Array<RouteRecordRaw> = [
     component: login,
   },
   {
-    path: "/about",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
-  },
-  {
     path: "/crear_doctor",
     component: CrearDoctor,
   },
+  {
+    path: "/AgregarHC",
+    component: AgregarHC,
+  },
+
 ];
 
 const router = createRouter({
