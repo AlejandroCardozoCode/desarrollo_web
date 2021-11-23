@@ -1,17 +1,20 @@
 <template>
   <div class="wrapper_principal">
-    <Barra_lateral></Barra_lateral>
-    <div class="pantalla">
-      <h1>Cambiar Contraseña</h1>
-      <div class="contededor_formulario">
-        <div class="barra_input">
-          <p>Ingrese su nueva contraseña</p>
-          <input type="password" class="input" id="nombre" />
-        </div>
-      </div>
+    <Header title="Cambiar Contraseña" class="header"></Header>
+    <Barra_lateral class="sidebar"></Barra_lateral>
 
-      <Boton msg="Cambiar"></Boton>
-    </div>
+    <section class="pantalla">
+      <div class="pantalla">
+        <div class="contededor_formulario">
+          <div class="barra_input">
+            <p>Ingrese su nueva contraseña</p>
+            <input type="password" class="input" id="nombre" />
+          </div>
+        </div>
+
+        <Boton msg="Cambiar"></Boton>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -19,9 +22,11 @@
 import { defineComponent } from "vue";
 import Boton from "@/components/boton.vue";
 import Barra_lateral from "@/components/barra_lateral.vue";
+import HelloWorld from "@/components/HelloWorld.vue";
+import Header from "@/components/layouts/Header.vue";
 export default defineComponent({
   name: "El",
-  components: { Boton, Barra_lateral },
+  components: { Boton, Barra_lateral, Header },
 });
 </script>
 
@@ -35,11 +40,20 @@ h1 {
   width: 40em;
 }
 .wrapper_principal {
-  height: 100vh;
-  overflow: auto;
-  background-color: rgb(172, 172, 172);
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 100px 1fr;
+  height: 100vh;
+}
+.header {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+.sidebar {
+  grid-column: 1/2;
+  grid-row: 1/3;
+  background-color: #68b0ab;
+  font-size: 0.7em;
 }
 
 .barra_lateral {
@@ -55,10 +69,10 @@ h1 {
   background: #faf3dd;
   display: flex;
   flex-direction: column;
-  grid-column: 2 / 5;
+  grid-column: 2 / 3;
   font-family: "Roboto", sans-serif;
-  color: #47525e;
-  font-size: 1.5em;
+  font-size: 1.2em;
+  justify-content: center;
 
   .barra_input {
     margin-top: 1.2em;

@@ -24,10 +24,12 @@ import component from '../shims-vue';
         </dd>
         <p></p>
         <dt>Admin</dt>
-        <dd></dd>
-        <a href="http://localhost:8080/crear_doctor">Crear Doctor</a>
-        <dd></dd>
-        <a href="http://localhost:8080/eliminar_doc">Eliminar Doctor</a>
+        <dd>
+          <a href="http://localhost:8080/crear_doctor">Crear Doctor</a>
+        </dd>
+        <dd>
+          <a href="http://localhost:8080/eliminar_doc">Eliminar Doctor</a>
+        </dd>
       </dl>
     </div>
   </div>
@@ -44,13 +46,13 @@ h1 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   font-family: "Roboto", sans-serif;
-  color: #faf3dd;
+  color: black;
 }
 a {
-  color: #faf3dd;
+  color: black;
 }
 dt {
-  color: #faf3dd;
+  color: black;
   font-weight: bold;
   margin-bottom: 0.5em;
 }
@@ -63,15 +65,13 @@ dd {
   flex-direction: column;
   grid-column: 1/2;
   align-items: center;
-  padding-top: 5em;
   font-family: "Roboto", sans-serif;
-  color: #faf3dd;
-  justify-content: center;
+  color: black;
 }
 .contenedor {
   align-items: center;
   font-size: 1.5em;
   font-family: "Roboto", sans-serif;
-  color: #faf3dd;
+  color: black;
 }
 </style>

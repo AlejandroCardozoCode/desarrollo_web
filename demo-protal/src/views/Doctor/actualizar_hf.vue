@@ -1,6 +1,7 @@
 <template>
   <div class="wrapper_principal">
-    <Barra_lateral></Barra_lateral>
+    <Header title="Cambiar Contraseña" class="header"></Header>
+    <Barra_lateral class="sidebar"></Barra_lateral>
     <div class="pantalla">
       <h1>Actualizar Hora Final</h1>
       <div class="contededor_formulario">

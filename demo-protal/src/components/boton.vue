@@ -18,8 +18,8 @@ export default {
 .boton {
   margin-top: 5em;
   align-self: center;
-  height: 4em;
-  width: 10em;
+  height: 2em;
+  width: 7em;
   background: #68b0ab;
   color: white;
   border-radius: 2em;
