@@ -5,7 +5,8 @@ import component from '../shims-vue';
       <h1>Menu</h1>
       <dl>
         <dt>Cliente</dt>
-        <dd><a href="https://www.w3schools.com/"></a></dd>
+        <dd><a href="http://localhost:8080/crearCliente">Crear cliente</a></dd>
+        <dd><a href="http://localhost:8080/cambiarContraCliente">Cambiar contraseña cliente</a></dd>
         <p></p>
         <dt>Doctor</dt>
         <dd>

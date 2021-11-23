@@ -7,6 +7,8 @@ import CambiarContraDoc from "../views/Doctor/cambiar_contra_doc.vue";
 import AgregarPacienteDoc from "../views/Doctor/agregar_paciente.vue";
 import login from "@/views/login.vue";
 import AgregarHC from "@/views/AgregarHC.vue";
+import cambiarContraCliente from "@/views/Cliente/cambiarContraCliente.vue";
+import crearCliente from "@/views/Cliente/crearCliente.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -40,6 +42,14 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/AgregarHC",
     component: AgregarHC,
+  },
+  {
+    path: "/crearCliente",
+    component: crearCliente,
+  },
+  {
+    path: "/cambiarContraCliente",
+    component: cambiarContraCliente,
   },
 ];
 
