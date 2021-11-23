@@ -62,16 +62,14 @@ dd {
   display: flex;
   flex-direction: column;
   grid-column: 1/2;
-  min-width: 10em;
   align-items: center;
   padding-top: 5em;
   font-family: "Roboto", sans-serif;
   color: #faf3dd;
+  justify-content: center;
 }
 .contenedor {
-  margin-top: 5em;
   align-items: center;
-  justify-content: center;
   font-size: 1.5em;
   font-family: "Roboto", sans-serif;
   color: #faf3dd;

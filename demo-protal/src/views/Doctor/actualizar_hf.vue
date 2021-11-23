@@ -69,14 +69,15 @@ h1 {
 .input {
   padding-left: 0.5em;
   margin-top: 0.5em;
-  height: 2em;
+  height: 1.5em;
   background: white;
   color: #47525e;
   width: 100%;
   font-family: "Roboto", sans-serif;
   font-size: 1em;
-  border: none;
+  border-style: solid;
+  border-color: #68b0ab;
   outline: none;
-  border-radius: 2em;
+  border-radius: 0.5em;
 }
 </style>

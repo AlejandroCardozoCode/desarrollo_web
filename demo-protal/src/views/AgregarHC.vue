@@ -2,7 +2,7 @@
   <div class="wrapper-layout">
     <Header title="Agregar Historia Clinica" class="header"></Header>
 
-    <nav class="sidebar">Barra</nav>
+    <Barra_lateral class="sidebar"></Barra_lateral>
 
     <section class="content">
       <div class="print-data">
@@ -37,10 +37,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import Header from "@/components/layouts/Header.vue";
+import Barra_lateral from "@/components/barra_lateral.vue";
 export default defineComponent({
   name: "AgregarHC",
   components: {
     Header,
+    Barra_lateral,
   },
 });
 </script>
@@ -61,8 +63,7 @@ export default defineComponent({
   grid-column: 1/2;
   grid-row: 1/3;
   background-color: #68b0ab;
-  border-right: 5px solid #4a7c59;
-  border-bottom: 2px;
+  font-size: 0.7em;
 }
 .content {
   grid-column: 2/3;
