@@ -6,7 +6,8 @@ import EliminarDoc from "../views/Doctor/eliminar_doc.vue";
 import CambiarContraDoc from "../views/Doctor/cambiar_contra_doc.vue";
 import AgregarPacienteDoc from "../views/Doctor/agregar_paciente.vue";
 import login from "@/views/login.vue";
-import AgregarHC from "@/views/AgregarHC.vue";
+import AgregarHC from "@/views/Paciente/AgregarHC.vue";
+import CrearPaciente from "@/views/Paciente/CrearPaciente.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -40,6 +41,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/AgregarHC",
     component: AgregarHC,
+  },
+  {
+    path: "/CrearPaciente",
+    component: CrearPaciente,
   },
 ];
 

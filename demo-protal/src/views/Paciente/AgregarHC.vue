@@ -74,6 +74,7 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
   .print-data {
+    font-family: "Roboto", sans-serif;
     display: flex;
     flex-direction: column;
     width: 80%;
@@ -90,6 +91,7 @@ export default defineComponent({
     }
   }
   .write-data {
+    font-family: "Roboto", sans-serif;
     display: flex;
     flex-direction: column;
     width: 80%;
