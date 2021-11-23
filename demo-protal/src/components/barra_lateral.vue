@@ -5,12 +5,22 @@ import component from '../shims-vue';
       <h1>Menu</h1>
       <dl>
         <dt>Cliente</dt>
-        <dd><a href="http://localhost:8080/CrearPaciente">CrearPaciente</a>
+        <dd><a href="http://localhost:8080/CrearPaciente">CrearPaciente</a></dd>
+        <dd>
+          <a href="http://localhost:8080/AgregarHC">Agregar Historia Clinica</a>
         </dd>
-        <dd><a href="http://localhost:8080/AgregarHC">Agregar Historia Clinica</a>
+        <dd><a href="http://localhost:8080/crearCliente">Crear cliente</a></dd>
+        <dd>
+          <a href="http://localhost:8080/cambiarContraCliente"
+            >Cambiar contraseña cliente</a
+          >
         </dd>
+        <p></p>
         <dt>Doctor</dt>
-        <dd><a href="http://localhost:8080/cambiar_contra_doc">Cambiar contraseña</a>
+        <dd>
+          <a href="http://localhost:8080/cambiar_contra_doc"
+            >Cambiar contraseña</a
+          >
         </dd>
         <dd>
           <a href="http://localhost:8080/actualizar_hi">Cambiar hora inicial</a>
