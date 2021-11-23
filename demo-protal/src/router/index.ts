@@ -10,6 +10,7 @@ import AgregarHC from "@/views/Paciente/AgregarHC.vue";
 import CrearPaciente from "@/views/Paciente/CrearPaciente.vue";
 import cambiarContraCliente from "@/views/Cliente/cambiarContraCliente.vue";
 import crearCliente from "@/views/Cliente/crearCliente.vue";
+import Tienda from "@/views/Doctor/tienda.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -55,6 +56,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: "/cambiarContraCliente",
     component: cambiarContraCliente,
+  },
+  {
+    path: "/Tienda",
+    component: Tienda,
   },
 ];
 

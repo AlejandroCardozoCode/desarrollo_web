@@ -43,6 +43,10 @@ import component from '../shims-vue';
         <dd>
           <a href="http://localhost:8080/eliminar_doc">Eliminar Doctor</a>
         </dd>
+        <dt>Tienda</dt>
+        <dd>
+          <a href="http://localhost:8080/Tienda">Productos</a>
+        </dd>
       </dl>
     </div>
   </div>
