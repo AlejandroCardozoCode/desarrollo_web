@@ -1,14 +1,14 @@
 <template>
   <div class="wrapper_principal">
-    <Barra_lateral></Barra_lateral>
+    <Header title="Crear Doctor" class="header"></Header>
+    <Barra_lateral class="sidebar"></Barra_lateral>
     <div class="pantalla">
-      <h1>Crear Doctor</h1>
       <div>
         <div class="barra_input">
           <p>Ingrese el nombre</p>
           <input
             type="text"
-            class="input_doctor"
+            class="input"
             id="nombre"
             v-model="doctor_a_crear.nombre"
           />
@@ -17,7 +17,7 @@
           <p>Ingrese la cedula</p>
           <input
             type="number"
-            class="input_doctor"
+            class="input"
             id="cedula"
             v-model="doctor_a_crear.cedula"
           />
@@ -26,7 +26,7 @@
           <p>Ingrese la hora inicial</p>
           <input
             type="number"
-            class="input_doctor"
+            class="input"
             id="inicial"
             v-model="doctor_a_crear.horaI"
           />
@@ -35,7 +35,7 @@
           <p>Ingrese la hora final</p>
           <input
             type="number"
-            class="input_doctor"
+            class="input"
             id="final"
             v-model="doctor_a_crear.horaF"
           />
@@ -44,7 +44,7 @@
           <p>Ingrese el usuario</p>
           <input
             type="text"
-            class="input_doctor"
+            class="input"
             id="user"
             v-model="doctor_a_crear.usuario"
           />
@@ -53,13 +53,13 @@
           <p>Ingrese la contraseña</p>
           <input
             type="password"
-            class="input_doctor"
+            class="input"
             id="contra"
             v-model="doctor_a_crear.contra"
           />
         </div>
       </div>
-      <button class="boton" @click="crear">Crear</button>
+      <Boton msg="Crear"></Boton>
     </div>
   </div>
 </template>
@@ -68,9 +68,11 @@
 import { defineComponent } from "vue";
 import { vm } from "@/viewModels/Doctor/crear_doctor_vm";
 import Barra_lateral from "@/components/barra_lateral.vue";
+import Header from "@/components/layouts/Header.vue";
+import Boton from "@/components/boton.vue";
 export default defineComponent({
   name: "CrearDoctor",
-  components: { Barra_lateral },
+  components: { Barra_lateral, Header, Boton },
   setup() {
     const { doctor_a_crear, crear } = vm();
     return { doctor_a_crear, crear };
@@ -80,20 +82,24 @@ export default defineComponent({
 
 <style scoped lang="scss">
 h1 {
-  font-family: "Roboto", sans-serif;
-  color: #47525e;
-  margin-left: 2.5em;
-  margin-top: 0.5em;
-}
-body {
-  font-family: "Roboto", sans-serif;
+  margin-left: 2.4em;
+  margin-top: 2em;
 }
 .wrapper_principal {
-  height: 100vh;
-  overflow: auto;
-  background-color: rgb(172, 172, 172);
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 100px 1fr;
+  height: 100vh;
+}
+.header {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+.sidebar {
+  grid-column: 1/2;
+  grid-row: 1/3;
+  background-color: #68b0ab;
+  font-size: 0.7em;
 }
 
 .barra_lateral {
@@ -102,14 +108,17 @@ body {
   flex-direction: column;
   grid-column: 1 / 2;
 }
+.contededor_formulario {
+  margin-top: 5em;
+}
 .pantalla {
   background: #faf3dd;
   display: flex;
   flex-direction: column;
-  grid-column: 2 / 5;
+  grid-column: 2 / 3;
   font-family: "Roboto", sans-serif;
-  color: #47525e;
-  font-size: 1.5em;
+  font-size: 1.2em;
+  justify-content: center;
 
   .barra_input {
     margin-top: 1.2em;
@@ -117,8 +126,7 @@ body {
     margin-right: 5em;
   }
 }
-
-.input_doctor {
+.input {
   padding-left: 0.5em;
   margin-top: 0.5em;
   height: 1.5em;
@@ -129,21 +137,8 @@ body {
   font-size: 1em;
   border-style: solid;
   border-color: #68b0ab;
+
   outline: none;
   border-radius: 0.5em;
-}
-.boton {
-  margin-top: 5em;
-  align-self: center;
-  height: 4em;
-  width: 10em;
-  background: #68b0ab;
-  color: white;
-  border-radius: 2em;
-  outline: none;
-  border: none;
-  font-family: "Roboto", sans-serif;
-  font-size: 0.7em;
-  margin-bottom: 5em;
 }
 </style>

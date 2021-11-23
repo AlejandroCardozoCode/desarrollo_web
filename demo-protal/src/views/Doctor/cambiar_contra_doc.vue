@@ -35,10 +35,6 @@ h1 {
   margin-left: 2.4em;
   margin-top: 2em;
 }
-.descripcion {
-  margin-left: 2.4em;
-  width: 40em;
-}
 .wrapper_principal {
   display: grid;
   grid-template-columns: 200px 1fr;

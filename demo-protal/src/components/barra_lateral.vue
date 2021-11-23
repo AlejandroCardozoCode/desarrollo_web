@@ -22,6 +22,10 @@ import component from '../shims-vue';
         <dd>
           <a href="http://localhost:8080/agregar_paciente">Agregar Paciente</a>
         </dd>
+        <dd>
+          <a href="http://localhost:8080/AgregarHC">Agregar HC</a>
+        </dd>
+
         <p></p>
         <dt>Admin</dt>
         <dd>

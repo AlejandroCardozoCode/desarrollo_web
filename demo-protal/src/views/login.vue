@@ -9,8 +9,13 @@
       <div class="wrapper-input">
         <label for="user" class="tag-input-login">Contraseña</label>
         <input type="password" class="input-login" id="password" />
+        <Boton msg="Ingresar"></Boton>
       </div>
       <input type="submit" value="Ingresar" class="submit-login" />
+
+      <a class="botonl" href="http://localhost:8080/crear_doctor"
+        >Cambiar hora inicial</a
+      >
     </div>
     <div class="image-login">
       <figure class="wrapper-image">
@@ -29,10 +34,17 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "login",
+  crear() {
+    alert("lkajflaj");
+  },
 });
 </script>
 
 <style scoped lang="scss">
+.botonl {
+  margin-top: -1.5em;
+  color: transparent;
+}
 .wrapper-login {
   height: 100vh;
   overflow: hidden;

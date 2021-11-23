@@ -1,9 +1,8 @@
 <template>
   <div class="wrapper_principal">
-    <Header title="Cambiar Contraseña" class="header"></Header>
+    <Header title="Actualizar Hora Final" class="header"></Header>
     <Barra_lateral class="sidebar"></Barra_lateral>
     <div class="pantalla">
-      <h1>Actualizar Hora Final</h1>
       <div class="contededor_formulario">
         <div class="barra_input">
           <p>Ingrese el UUID del doctor</p>
@@ -24,9 +23,10 @@
 import { defineComponent } from "vue";
 import Boton from "@/components/boton.vue";
 import Barra_lateral from "@/components/barra_lateral.vue";
+import Header from "@/components/layouts/Header.vue";
 export default defineComponent({
   name: "ActualizarHF",
-  components: { Boton, Barra_lateral },
+  components: { Boton, Barra_lateral, Header },
 });
 </script>
 
@@ -36,11 +36,20 @@ h1 {
   margin-top: 2em;
 }
 .wrapper_principal {
-  height: 100vh;
-  overflow: auto;
-  background-color: rgb(172, 172, 172);
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 100px 1fr;
+  height: 100vh;
+}
+.header {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+.sidebar {
+  grid-column: 1/2;
+  grid-row: 1/3;
+  background-color: #68b0ab;
+  font-size: 0.7em;
 }
 
 .barra_lateral {
@@ -56,10 +65,10 @@ h1 {
   background: #faf3dd;
   display: flex;
   flex-direction: column;
-  grid-column: 2 / 5;
+  grid-column: 2 / 3;
   font-family: "Roboto", sans-serif;
-  color: #47525e;
-  font-size: 1.5em;
+  font-size: 1.2em;
+  justify-content: center;
 
   .barra_input {
     margin-top: 1.2em;
@@ -78,6 +87,7 @@ h1 {
   font-size: 1em;
   border-style: solid;
   border-color: #68b0ab;
+
   outline: none;
   border-radius: 0.5em;
 }
