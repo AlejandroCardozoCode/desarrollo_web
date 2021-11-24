@@ -90,5 +90,7 @@ dd {
   font-size: 1.5em;
   font-family: "Roboto", sans-serif;
   color: black;
+  margin: 10px;
+
 }
 </style>

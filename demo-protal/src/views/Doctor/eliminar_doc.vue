@@ -5,10 +5,26 @@
     <div class="pantalla">
       <div class="contededor_formulario">
         <div class="barra_input">
-          <p>Ingrese el UUID del doctor</p>
+          <p>Ingrese la cedula del doctor</p>
           <input type="text" class="input" id="nombre" />
         </div>
       </div>
+      <table class="tabla">
+        <tr>
+          <th>
+            <p>Nombre: Mario Huertas</p>
+          </th>
+          <th>
+            <p>Cedula: 00000000</p>
+          </th>
+          <th>
+            <p>Usuario: Mhuertas</p>
+          </th>
+          <th>
+            <p>UUID: 184ce58b-1c53-46bc-93f4-a1b77e79f340</p>
+          </th>
+        </tr>
+      </table>
 
       <Boton msg="Eliminar"></Boton>
     </div>
@@ -86,5 +102,13 @@ h1 {
 
   outline: none;
   border-radius: 0.5em;
+}
+.tabla,
+th {
+  margin: 50px;
+  font-family: Roboto, sans-serif;
+  border: 5px solid #68b0ab;
+  border-collapse: collapse;
+  border-radius: 1rem;
 }
 </style>

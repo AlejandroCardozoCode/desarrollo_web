@@ -16,6 +16,10 @@
             <p>Ingrese su nueva contraseña</p>
             <input type="password" class="input" id="nombre" />
           </div>
+          <div class="barra_input">
+            <p>Confirme su contraseña</p>
+            <input type="password" class="input" id="confirmcontra" />
+          </div>
         </div>
 
         <Boton msg="Cambiar"></Boton>
@@ -25,15 +29,15 @@
 </template>
 
 <script lang="ts">
-import {defineComponent} from "vue";
+import { defineComponent } from "vue";
 import Boton from "@/components/boton.vue";
 import Barra_lateral from "@/components/barra_lateral.vue";
 import Header from "@/components/layouts/Header.vue";
 
-export default defineComponent( {
-name: "cambiarContraCliente",
+export default defineComponent({
+  name: "cambiarContraCliente",
   components: { Boton, Barra_lateral, Header },
-})
+});
 </script>
 
 <style scoped lang="css">
@@ -57,12 +61,6 @@ h1 {
   background-color: #68b0ab;
   font-size: 0.7em;
 }
-.barra_lateral {
-  background: #68b0ab;
-  display: flex;
-  flex-direction: column;
-  grid-column: 1 / 2;
-}
 .contededor_formulario {
   margin-left: 2em;
   margin-right: 2em;
@@ -76,12 +74,11 @@ h1 {
   font-family: "Roboto", sans-serif;
   font-size: 1.2em;
   justify-content: center;
-
-.barra_input {
-  margin-top: 1.2em;
-  margin-left: 5em;
-  margin-right: 5em;
-}
+  .barra_input {
+    margin-top: 1.2em;
+    margin-left: 5em;
+    margin-right: 5em;
+  }
 }
 .input {
   padding-left: 0.5em;

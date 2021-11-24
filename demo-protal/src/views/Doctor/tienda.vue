@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper_principal">
-    <Header title="Tienda" class="header"></Header>
+    <Header title="Tienda Deweb" class="header"></Header>
     <Barra_lateral class="sidebar"></Barra_lateral>
     <div class="pantalla">
       <table class="tabla">

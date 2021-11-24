@@ -10,6 +10,11 @@
             <p>Ingrese su nueva contraseña</p>
             <input type="password" class="input" id="nombre" />
           </div>
+          <div class="barra_input">
+            <p>Confirme su contraseña</p>
+            <input type="password" class="input" id="nombre" />
+          </div>
+
         </div>
 
         <Boton msg="Cambiar"></Boton>

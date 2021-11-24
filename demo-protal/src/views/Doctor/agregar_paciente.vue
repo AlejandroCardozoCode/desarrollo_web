@@ -8,8 +8,30 @@
           <p>Ingrese el UUID del paciente que quiere agregar</p>
           <input type="text" class="input" id="nombre" />
         </div>
-      </div>
 
+      </div>
+      <table class="tabla">
+        <tr>
+          <th>
+            <p>Nombre: Firulais</p>
+          </th>
+          <th>
+            <p>Animal: Perro</p>
+          </th>
+          <th>
+            <p>Raza: Pug</p>
+          </th>
+          <th>
+            <p>Edad: 6 años</p>
+          </th>
+          <th>
+            <p>IdDueño:0000000</p>
+          </th>
+          <th>
+            <p>UUID: 184ce58b-1c53-46bc-93f4-a1b77e79f340</p>
+          </th>
+        </tr>
+      </table>
       <Boton msg="Agregar"></Boton>
     </div>
   </div>
@@ -86,5 +108,13 @@ h1 {
 
   outline: none;
   border-radius: 0.5em;
+}
+.tabla,
+th {
+  margin: 50px;
+  font-family: Roboto, sans-serif;
+  border: 5px solid #68b0ab;
+  border-collapse: collapse;
+  border-radius: 1rem;
 }
 </style>
